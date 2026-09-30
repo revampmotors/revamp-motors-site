@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+</style>
+</helmet>
+
+<div data-screen-label="Mobile · Our Process" style="width:100%;max-width:480px;margin:0 auto;overflow-x:clip;background:#F6EDDC;min-height:100vh">
+  <dc-import name="M-Chrome" active="Our Process" hint-size="100%,56px"></dc-import>
+
+  <!-- hero -->
+  <div style="background:#2A1A12;padding:40px 20px 44px">
+    <img src="assets/badge.png" alt="Revamp Motors badge" style="width:120px;display:block;margin-bottom:22px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#E9A13B;margin-bottom:12px">Our process, start to finish</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:40px;line-height:1.02;color:#F6EDDC">We show our work. This is the work.</div>
+    <p style="font-size:15.5px;line-height:1.65;color:rgba(246,237,220,.72);margin:16px 0 0">From the auction lane to a week after you drive off — here's exactly what happens to every car we sell, and every number we put in writing.</p>
+  </div>
+
+  <!-- step index (sticky) -->
+  <div style="position:sticky;top:56px;z-index:40;background:#EFE3CB;border-bottom:1px solid rgba(42,26,18,.12)">
+    <div style="display:flex;gap:6px;overflow-x:auto;padding:10px 20px;scrollbar-width:none">
+      <a href="#sourcing" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">1 · SOURCING</a>
+      <a href="#inspection" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">2 · INSPECTION</a>
+      <a href="#recon" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">3 · RECON</a>
+      <a href="#pricing" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">4 · PRICING</a>
+      <a href="#warranty" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">5 · WARRANTY</a>
+      <a href="#financing" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">6 · FINANCING</a>
+      <a href="#after" style="flex:none;display:inline-flex;align-items:center;height:44px;padding:0 13px;border:1px solid rgba(42,26,18,.2);border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#2A1A12;white-space:nowrap;background:#FDF8ED">7 · AFTER</a>
+    </div>
+  </div>
+
+  <!-- 1 sourcing -->
+  <div id="sourcing" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">1</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">Sourcing</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">Most cars don't make our lot.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 22px">We buy at dealer auctions and from local sellers — one-owner, clean-history cars in the $10–25k range Miami actually drives. Before we bid, the history report gets pulled. After we buy, the car still has to pass inspection or it goes back to auction, at our loss, not yours.</p>
+    <div id="rejected" style="scroll-margin-top:124px;background:#FDF8ED;border:2px solid #C4502E;border-radius:14px;padding:20px 18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px">
+        <span style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#C4502E;line-height:1.4">REJECTED AT THE GATE — NO EXCEPTIONS</span>
+        <span style="flex:none;border:2px solid #C4502E;color:#C4502E;font-size:10px;font-weight:700;letter-spacing:.14em;padding:5px 9px;border-radius:5px;transform:rotate(3deg)">POLICY</span>
+      </div>
+      <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:20px;height:20px;border-radius:50%;background:#C4502E;color:#F6EDDC;display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none;margin-top:1px">✕</span><span style="font-size:14px;line-height:1.5;color:#2A1A12"><strong>Flood or water damage</strong> — title-flagged or found physically. We're in a hurricane state; this is check #1.</span></div>
+      <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:20px;height:20px;border-radius:50%;background:#C4502E;color:#F6EDDC;display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none;margin-top:1px">✕</span><span style="font-size:14px;line-height:1.5;color:#2A1A12"><strong>Salvage, rebuilt, or washed titles</strong> — including out-of-state re-titles hiding a brand.</span></div>
+      <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:20px;height:20px;border-radius:50%;background:#C4502E;color:#F6EDDC;display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none;margin-top:1px">✕</span><span style="font-size:14px;line-height:1.5;color:#2A1A12"><strong>Frame or structural repair</strong> — cosmetic bodywork is fine; bent metal isn't.</span></div>
+      <div style="display:flex;gap:11px;align-items:flex-start;padding:10px 0"><span style="width:20px;height:20px;border-radius:50%;background:#C4502E;color:#F6EDDC;display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex:none;margin-top:1px">✕</span><span style="font-size:14px;line-height:1.5;color:#2A1A12"><strong>Odometer discrepancies</strong> — mileage that doesn't match the service records.</span></div>
+    </div>
+  </div>
+
+  <!-- 2 inspection -->
+  <div id="inspection" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">2</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">The Revamp Vetted™ inspection</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">132 points, checked by hand, published.</div>
+    <div style="font-size:14.5px;line-height:1.6;color:rgba(42,26,18,.65);margin:12px 0 20px">Done by our tech on a lift over ~3 hours. The same sheet — every point, pass or fixed — is published on the listing.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">24</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Engine &amp; transmission</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Compression, leak-down, shift quality cold + hot, mounts, fluids</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">22</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Interior &amp; electronics</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Every seat, switch, screen, speaker, camera and sensor</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">18</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Brakes &amp; suspension</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Pad depth measured in mm, rotors, bushings, CV boots, struts</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">18</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Body, frame &amp; flood</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Structural welds, panel gaps, moisture points under carpet &amp; trunk</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">16</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Electrical &amp; battery</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Load test, alternator output, wiring, all lights &amp; codes scanned</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">12</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">A/C &amp; cooling</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Vent temps verified in Miami heat, compressor, radiator, hoses</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">10</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Tires &amp; wheels</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Tread depth per corner, date codes, matching sets, spare kit</div></div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:14px"><div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#C4502E">12</div><div style="font-size:13px;font-weight:700;color:#2A1A12;margin-top:2px">Road test</div><div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.6);margin-top:5px">Highway + surface streets: pulls, vibrations, noises, braking</div></div>
+    </div>
+    <div style="background:#2A1A12;border-radius:12px;padding:18px;margin-top:16px">
+      <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.85)"><strong style="color:#E9A13B">Fail any structural, flood, or safety point?</strong> The car goes back to auction. No "mechanic's special" corner of the lot.</div>
+      <a href="M-Vehicle-Detail.dc.html#report" style="display:flex;align-items:center;justify-content:center;height:48px;background:#E9A13B;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:14px">See a live report →</a>
+    </div>
+  </div>
+
+  <!-- 3 recon -->
+  <div id="recon" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">3</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">Reconditioning</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">"Revamped" is a checklist, not a slogan.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 20px">Whatever the inspection flags gets fixed with new parts — then the fix list is published on the listing. Every car also gets the same baseline service before it's photographed.</p>
+    <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:18px">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#C4502E;margin-bottom:6px">EVERY CAR, BEFORE IT'S LISTED</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>Fresh oil, oil filter &amp; engine air filter</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>New wiper blades &amp; cabin filter</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>Brakes at 50%+ life or replaced</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>Tires at 5/32"+ or replaced, then aligned</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>Open recalls completed at the franchise dealer</div>
+      <div style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-size:14px;line-height:1.5;color:#2A1A12"><span style="color:#C4502E;font-weight:800;flex:none">✓</span>Full detail — interior, engine bay, undercarriage</div>
+      <div style="font-size:12.5px;color:rgba(42,26,18,.55);margin-top:10px;line-height:1.5">Then 30+ photos on our lot — same wall, same light, no fisheye lens.</div>
+    </div>
+  </div>
+
+  <!-- 4 pricing -->
+  <div id="pricing" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">4</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">Pricing</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">Priced to market. Quoted out-the-door.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 20px">We price against actual local sales — usually 94–97% of market — and show you the range on the listing. If a car sits 21 days, the price drops and we publish that too. The out-the-door worksheet (tax, tag, title, and our flat <strong>$499 dealer fee</strong>) is on every listing, so the desk visit is a signature, not a negotiation.</p>
+    <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(42,26,18,.08)">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#2A1A12;border-bottom:2px solid #2A1A12;padding-bottom:10px">DEALER FEE COMPARISON — MIAMI</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="font-size:14px;font-weight:700;color:#2A1A12">Revamp Motors</span><span style="font-family:ui-monospace,Menlo,monospace;font-weight:700;font-size:15px;color:#C4502E;white-space:nowrap">$499 flat</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="font-size:14px;color:rgba(42,26,18,.7)">Typical independent lot</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:rgba(42,26,18,.7);white-space:nowrap">$999–1,499</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0"><span style="font-size:14px;color:rgba(42,26,18,.7)">Typical franchise store</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:rgba(42,26,18,.7);text-align:right">$899–1,299 + add-ons</span></div>
+      <div style="font-size:12px;color:rgba(42,26,18,.55);border-top:1px solid rgba(42,26,18,.12);padding-top:10px;line-height:1.5">No nitrogen tires, no VIN etching, no "protection packages" pre-loaded on the contract.</div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <a href="M-Inventory.dc.html" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Browse priced cars</a>
+      <a href="M-FAQ.dc.html" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;border:1.5px solid rgba(42,26,18,.25);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Fee FAQ →</a>
+    </div>
+  </div>
+
+  <!-- 5 warranty -->
+  <div id="warranty" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">5</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">Warranty</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">Every car leaves covered.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 20px">If we vetted it, we stand behind it. The 30-day warranty is free and automatic — it's on the buyer's order, not a handshake. Want longer? Extended plans are priced on a printed sheet, never pushed at the desk.</p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:#2A1A12;border-radius:14px;padding:20px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:8px">INCLUDED FREE — EVERY CAR</div>
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#F6EDDC;line-height:1.15">30-day / 1,000-mi limited powertrain warranty</div>
+        <div style="font-size:13.5px;line-height:1.6;color:rgba(246,237,220,.7);margin-top:10px">Engine, transmission &amp; drive axle. In writing on the buyer's order. Something's off? Call us first — we fix it or make it right.</div>
+      </div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:20px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:#C4502E;margin-bottom:8px">OPTIONAL — PRICED UP FRONT</div>
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12;line-height:1.15">Extended coverage up to 3 yr / 36k mi</div>
+        <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.7);margin-top:10px">Third-party administered, usable at any licensed shop. The price sheet is printed and public — the same number for every customer.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 financing -->
+  <div id="financing" style="scroll-margin-top:124px;padding:40px 20px;border-bottom:1px solid rgba(42,26,18,.1)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:16px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;width:38px;height:38px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none">6</span>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E">Financing</span>
+    </div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#2A1A12">Two ways to finance. One honest worksheet.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 20px">Whichever route you take, the worksheet shows the price, your real APR, the term, and the payment — nothing packed in. Bring your own bank's approval if you like; we'll work with it.</p>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:18px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:#C4502E;margin-bottom:6px">ROUTE A — BANK &amp; CREDIT-UNION PARTNERS</div>
+        <div style="font-size:14px;line-height:1.6;color:rgba(42,26,18,.75)">Good-to-strong credit. We shop your application to local lenders and show you the best 2–3 approvals side by side — rate, term, payment.</div>
+      </div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:18px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:#C4502E;margin-bottom:6px">ROUTE B — IN-HOUSE FINANCING</div>
+        <div style="font-size:14px;line-height:1.6;color:rgba(42,26,18,.75)">Thin file, rebuilding, or the banks said no. We finance directly: proof of income + residence, a reasonable down payment, and on-time payments reported so your credit rebuilds.</div>
+      </div>
+    </div>
+    <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.65);margin-top:16px">Soft credit pull to pre-qualify — no score impact until you pick a car. <a href="M-FAQ.dc.html" style="font-weight:600">Financing FAQ →</a></div>
+  </div>
+
+  <!-- 7 after the sale -->
+  <div id="after" style="scroll-margin-top:124px;background:#2A1A12;padding:44px 20px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#E9A13B;margin-bottom:12px">Step 7 — after the sale</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.08;color:#F6EDDC">We call you. Not the other way around.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(246,237,220,.72);margin:12px 0 24px">Title and tag handled in-house. A week after delivery you get a check-in call — anything rattling, anything unclear, we handle it. That's how a two-year-old dealership gets to 4.9 stars.</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <a href="M-Inventory.dc.html" style="display:flex;align-items:center;justify-content:center;height:54px;background:#E9A13B;color:#2A1A12;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;white-space:nowrap">Browse 18 vetted cars</a>
+      <a href="M-Sell-or-Trade.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;border:1.5px solid rgba(246,237,220,.4);color:#F6EDDC;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;white-space:nowrap">Get an offer on yours</a>
+    </div>
+  </div>
+
+  <div style="height:1px;background:rgba(246,237,220,.12)"></div>
+  <dc-import name="M-Footer" legal="Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL dealer license pending. Pricing and availability subject to change." hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

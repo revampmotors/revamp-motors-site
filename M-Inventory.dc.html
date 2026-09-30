@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+@keyframes m-slide-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes m-fade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+
+<div data-screen-label="Mobile · Inventory" style="width:100%;max-width:480px;margin:0 auto;overflow-x:clip;background:#F6EDDC;min-height:100vh">
+  <dc-import name="M-Chrome" active="Inventory" hint-size="100%,56px"></dc-import>
+
+  <!-- page header -->
+  <div ref="{{ rootRef }}" style="padding:26px 20px 14px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:8px">Current stock — every car Revamp Vetted™</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+      <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:40px;line-height:1;color:#2A1A12">Inventory</div>
+      <div style="font-size:13.5px;color:rgba(42,26,18,.65);white-space:nowrap"><strong style="color:#2A1A12">{{ count }}</strong> of 18 cars</div>
+    </div>
+    <div style="font-size:13.5px;line-height:1.5;color:rgba(42,26,18,.65);margin-top:8px">Every listing includes the 132-pt report, recon list, history report &amp; out-the-door price.</div>
+  </div>
+
+  <!-- sticky filter bar -->
+  <div style="position:sticky;top:56px;z-index:40;background:#F6EDDC;border-bottom:1px solid rgba(42,26,18,.12);padding:10px 0 12px">
+    <div style="display:flex;gap:8px;align-items:center;overflow-x:auto;padding:0 20px;scrollbar-width:none">
+      <span onClick="{{ openSheet }}" style="{{ filterBtnStyle }}"><span style="display:flex;flex-direction:column;gap:3px"><span style="display:block;width:14px;height:2px;background:currentColor;border-radius:1px"></span><span style="display:block;width:10px;height:2px;background:currentColor;border-radius:1px"></span><span style="display:block;width:6px;height:2px;background:currentColor;border-radius:1px"></span></span>{{ filterLabel }}</span>
+      <span style="width:1px;height:24px;background:rgba(42,26,18,.15);flex:none"></span>
+      <sc-for list="{{ bodyChips }}" as="chip" hint-placeholder-count="4">
+        <span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- list -->
+  <div style="padding:18px 20px 8px">
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:50px 10px;color:rgba(42,26,18,.65);font-size:15px;line-height:1.6">No cars match those filters — try loosening one, or <a href="M-About-Contact.dc.html#contact" style="font-weight:600">tell us what you're looking for</a> and we'll source it.<div onClick="{{ reset }}" style="display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border:1.5px solid rgba(42,26,18,.3);border-radius:8px;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:18px;cursor:pointer">Clear filters</div></div>
+    </sc-if>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ cars }}" as="car" hint-placeholder-count="4">
+        <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden;box-shadow:0 3px 12px rgba(42,26,18,.06)">
+          <a href="M-Vehicle-Detail.dc.html" style="position:relative;display:flex;height:186px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center">
+            <span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em">{{ car.photoLabel }}</span>
+            <sc-if value="{{ car.isNew }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;top:12px;left:12px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px;white-space:nowrap">JUST REVAMPED</span>
+            </sc-if>
+            <sc-if value="{{ car.isPending }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;top:12px;left:12px;background:#F6EDDC;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px;white-space:nowrap">SALE PENDING</span>
+            </sc-if>
+          </a>
+          <div style="padding:16px">
+            <a href="M-Vehicle-Detail.dc.html" style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:21px;line-height:1.15;color:#2A1A12">{{ car.name }}</a>
+            <div style="font-size:13px;color:rgba(42,26,18,.6);margin-top:4px">{{ car.meta }}</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:10px">
+              <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:26px;color:#2A1A12">{{ car.priceTxt }}</span>
+              <span style="font-size:13px;color:rgba(42,26,18,.6);white-space:nowrap">{{ car.moTxt }}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px dashed rgba(42,26,18,.2);margin-top:12px;padding-top:10px">
+              <span style="display:flex;align-items:center;gap:7px"><img src="assets/icon.png" alt="" style="width:17px;height:17px"><span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#2A1A12">REVAMP VETTED · 132-PT</span></span>
+              <a href="M-Vehicle-Detail.dc.html#report" style="font-size:12.5px;font-weight:600;color:#C4502E;padding:12px 0">Report ↓</a>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a href="M-Vehicle-Detail.dc.html" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;border:1.5px solid rgba(42,26,18,.25);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Details</a>
+              <a href="M-Vehicle-Detail.dc.html#book" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Test drive</a>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- can't find it -->
+  <div style="padding:24px 20px 44px">
+    <div style="background:#EFE3CB;border:1px solid rgba(42,26,18,.12);border-radius:14px;padding:22px 20px">
+      <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:22px;color:#2A1A12">Don't see your car?</div>
+      <div style="font-size:14.5px;line-height:1.55;color:rgba(42,26,18,.7);margin-top:6px">Tell us the make, model, and budget — we source at auction weekly and we'll vet one for you.</div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <a href="M-About-Contact.dc.html#contact" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Request a car</a>
+        <a href="https://wa.me/17868812283" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">WhatsApp us</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="M-Footer" legal="Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL dealer license pending. Pricing and availability subject to change." hint-size="100%,640px"></dc-import>
+
+  <!-- filter sheet -->
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;z-index:100;background:rgba(42,26,18,.6);display:flex;align-items:flex-end;animation:m-fade .15s ease-out">
+      <div onClick="{{ swallow }}" style="background:#FDF8ED;border-radius:18px 18px 0 0;width:100%;max-width:480px;margin:0 auto;box-sizing:border-box;box-shadow:0 -20px 60px rgba(0,0,0,.35);padding:14px 20px calc(20px + env(safe-area-inset-bottom));max-height:92vh;overflow-y:auto;animation:m-slide-up .25s ease-out">
+        <div style="width:40px;height:4px;border-radius:2px;background:rgba(42,26,18,.18);margin:0 auto 14px"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12;white-space:nowrap">Filter &amp; sort</span>
+          <span onClick="{{ reset }}" style="font-size:12.5px;font-weight:600;color:#C4502E;padding:10px 0 10px 12px;cursor:pointer">Reset</span>
+        </div>
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:rgba(42,26,18,.55);margin:14px 0 8px">BODY</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ bodyChips }}" as="chip" hint-placeholder-count="4"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:rgba(42,26,18,.55);margin:18px 0 8px">PRICE</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ priceChips }}" as="chip" hint-placeholder-count="4"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:rgba(42,26,18,.55);margin:18px 0 8px">SORT</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ sortChips }}" as="chip" hint-placeholder-count="4"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div onClick="{{ closeSheet }}" style="display:flex;align-items:center;justify-content:center;height:52px;background:#2A1A12;color:#F6EDDC;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:22px;cursor:pointer;user-select:none">{{ showLabel }}</div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { body: 'All', price: 'Any price', sort: 'Newest', sheet: false };
+  ref = React.createRef();
+  scroller() { const el = this.ref.current; return (el && el.closest('[data-m-scroll]')) || document.body; }
+  lock(force) {
+    const el = this.scroller();
+    const want = force === false ? false : !!this.state.sheet;
+    if (want && !el.__mLockInv) { el.__mLockInv = { v: el.style.overflowY }; el.style.overflowY = 'hidden'; }
+    else if (!want && el.__mLockInv) { el.style.overflowY = el.__mLockInv.v; el.__mLockInv = null; }
+  }
+  componentDidUpdate() { this.lock(); }
+  componentWillUnmount() { this.lock(false); }
+
+  allCars() {
+    return [
+      { name: '2021 Kia Soul LX', miles: 33410, price: 16980, mo: 305, body: 'Hatchbacks', badge: 'new', photos: 33, unit: 'A-129' },
+      { name: '2021 Hyundai Elantra SEL', miles: 38900, price: 16890, mo: 305, body: 'Sedans', badge: 'new', photos: 35, unit: 'A-127' },
+      { name: '2020 Kia Forte LXS', miles: 41880, price: 14750, mo: 265, body: 'Sedans', badge: 'new', photos: 36, unit: 'A-121' },
+      { name: '2019 Toyota Corolla SE', miles: 62410, price: 15990, mo: 289, body: 'Sedans', badge: 'new', photos: 34, unit: 'A-112' },
+      { name: '2018 Mazda CX-5 Touring', miles: 68540, price: 17290, mo: 309, body: 'SUVs', badge: null, photos: 32, unit: 'A-125' },
+      { name: '2019 Hyundai Tucson SE', miles: 59830, price: 16450, mo: 297, body: 'SUVs', badge: null, photos: 30, unit: 'A-123' },
+      { name: '2018 Honda CR-V EX AWD', miles: 78230, price: 19480, mo: 349, body: 'SUVs', badge: 'pending', photos: 31, unit: 'A-108' },
+      { name: '2019 Kia Sportage LX', miles: 64720, price: 15480, mo: 279, body: 'SUVs', badge: null, photos: 29, unit: 'A-118' },
+      { name: '2019 Honda Civic LX', miles: 55300, price: 16240, mo: 295, body: 'Sedans', badge: null, photos: 33, unit: 'A-116' },
+      { name: '2020 Nissan Sentra SV', miles: 47210, price: 14290, mo: 259, body: 'Sedans', badge: null, photos: 28, unit: 'A-120' },
+      { name: '2018 Toyota Highlander LE', miles: 89660, price: 22990, mo: 409, body: 'SUVs', badge: null, photos: 38, unit: 'A-114' },
+      { name: '2017 Honda Accord Sport', miles: 82350, price: 15790, mo: 285, body: 'Sedans', badge: null, photos: 31, unit: 'A-109' },
+      { name: '2017 Toyota Camry SE', miles: 88140, price: 13990, mo: 255, body: 'Sedans', badge: null, photos: 30, unit: 'A-105' },
+      { name: '2018 Nissan Rogue SV', miles: 71650, price: 14990, mo: 269, body: 'SUVs', badge: null, photos: 29, unit: 'A-111' },
+      { name: '2016 Toyota RAV4 XLE', miles: 96480, price: 13450, mo: 245, body: 'SUVs', badge: null, photos: 32, unit: 'A-103' },
+      { name: '2017 Ford Escape SE', miles: 77890, price: 11990, mo: 219, body: 'SUVs', badge: null, photos: 27, unit: 'A-107' },
+      { name: '2016 Honda Fit LX', miles: 91200, price: 10490, mo: 195, body: 'Hatchbacks', badge: null, photos: 28, unit: 'A-102' },
+      { name: '2015 Toyota Corolla LE', miles: 104300, price: 9990, mo: 189, body: 'Sedans', badge: null, photos: 26, unit: 'A-101' }
+    ];
+  }
+
+  chipStyle(active) {
+    return {
+      display: 'inline-flex', alignItems: 'center', height: 44, padding: '0 16px', borderRadius: 99, cursor: 'pointer', fontSize: '14px', fontWeight: 600, whiteSpace: 'nowrap', flex: 'none', userSelect: 'none', boxSizing: 'border-box',
+      border: active ? '1.5px solid #2A1A12' : '1px solid rgba(42,26,18,.25)',
+      background: active ? '#2A1A12' : '#FDF8ED',
+      color: active ? '#F6EDDC' : 'rgba(42,26,18,.75)'
+    };
+  }
+
+  chips(options, key) {
+    return options.map((label) => ({ label, style: this.chipStyle(this.state[key] === label), pick: () => this.setState({ [key]: label }) }));
+  }
+
+  renderVals() {
+    const caps = { 'Any price': Infinity, 'Under $12k': 12000, 'Under $15k': 15000, 'Under $18k': 18000 };
+    const fmt = (n) => '$' + n.toLocaleString('en-US');
+    let list = this.allCars();
+    if (this.state.body !== 'All') list = list.filter((c) => c.body === this.state.body);
+    list = list.filter((c) => c.price < (caps[this.state.price] || Infinity));
+    if (this.state.sort === 'Price ↑') list = [...list].sort((a, b) => a.price - b.price);
+    if (this.state.sort === 'Price ↓') list = [...list].sort((a, b) => b.price - a.price);
+    if (this.state.sort === 'Lowest miles') list = [...list].sort((a, b) => a.miles - b.miles);
+    const cars = list.map((c) => ({
+      ...c,
+      isNew: c.badge === 'new',
+      isPending: c.badge === 'pending',
+      priceTxt: fmt(c.price),
+      moTxt: '$' + c.mo + '/mo est.',
+      meta: c.miles.toLocaleString('en-US') + ' mi · Automatic · Clean title',
+      photoLabel: c.photos + ' PHOTOS · UNIT #' + c.unit
+    }));
+    const activeCount = (this.state.price !== 'Any price' ? 1 : 0) + (this.state.sort !== 'Newest' ? 1 : 0);
+    return {
+      rootRef: this.ref,
+      cars,
+      count: cars.length,
+      empty: cars.length === 0,
+      bodyChips: this.chips(['All', 'Sedans', 'SUVs', 'Hatchbacks'], 'body'),
+      priceChips: this.chips(['Any price', 'Under $12k', 'Under $15k', 'Under $18k'], 'price'),
+      sortChips: this.chips(['Newest', 'Price ↑', 'Price ↓', 'Lowest miles'], 'sort'),
+      filterLabel: activeCount ? 'Filters · ' + activeCount : 'Filter & sort',
+      filterBtnStyle: Object.assign(this.chipStyle(activeCount > 0), { gap: 9, borderRadius: 8, fontSize: '13px', fontWeight: 700 }),
+      showLabel: 'Show ' + cars.length + (cars.length === 1 ? ' car' : ' cars'),
+      sheetOpen: this.state.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      swallow: (e) => e.stopPropagation(),
+      reset: () => this.setState({ body: 'All', price: 'Any price', sort: 'Newest' })
+    };
+  }
+}
+</script>
+</body>
+</html>

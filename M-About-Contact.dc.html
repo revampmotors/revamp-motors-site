@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<script src="image-slot.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+input,select,textarea{font-family:Archivo,Helvetica,sans-serif}
+input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
+</style>
+</helmet>
+
+<div data-screen-label="Mobile · About & Contact" style="width:100%;max-width:480px;margin:0 auto;overflow-x:clip;background:#F6EDDC;min-height:100vh">
+  <dc-import name="M-Chrome" active="About & Contact" hint-size="100%,56px"></dc-import>
+
+  <!-- story -->
+  <div style="padding:30px 20px 36px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:12px">About Revamp Motors</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:38px;line-height:1.02;color:#2A1A12">Built by people who got burned buying used cars.</div>
+    <p style="font-size:15.5px;line-height:1.7;color:rgba(42,26,18,.75);margin:16px 0 0">Revamp Motors started in 2023 with a simple bet: in a city famous for shady lots, the dealership that <em>shows its work</em> wins. So we publish the inspection, print the fix list, quote the out-the-door number before you visit, and put the warranty in writing. Two years in — 4.9 stars, most of our cars selling inside three weeks — the bet is paying off.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px">
+      <div><div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:28px;line-height:1;color:#C4502E">2023</div><div style="font-size:10.5px;letter-spacing:.08em;color:rgba(42,26,18,.6);margin-top:6px;line-height:1.4">FOUNDED IN MIAMI</div></div>
+      <div><div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:28px;line-height:1;color:#C4502E">300+</div><div style="font-size:10.5px;letter-spacing:.08em;color:rgba(42,26,18,.6);margin-top:6px;line-height:1.4">CARS VETTED &amp; SOLD</div></div>
+      <div><div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:28px;line-height:1;color:#C4502E">4.9 ★</div><div style="font-size:10.5px;letter-spacing:.08em;color:rgba(42,26,18,.6);margin-top:6px;line-height:1.4">87 GOOGLE REVIEWS</div></div>
+    </div>
+    <div style="border:1px solid rgba(42,26,18,.18);outline:3px solid rgba(217,164,74,.35);outline-offset:-9px;border-radius:14px;overflow:hidden;height:240px;box-shadow:0 14px 34px rgba(42,26,18,.14);margin-top:28px">
+      <image-slot id="about-team" shape="rect" placeholder="The whole team, on the lot — candid beats corporate"></image-slot>
+    </div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:rgba(42,26,18,.5);margin-top:10px;letter-spacing:.06em">PHOTO: THE PEOPLE CUSTOMERS WILL ACTUALLY MEET</div>
+  </div>
+
+  <!-- values -->
+  <div style="background:#2A1A12;padding:40px 20px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:21px;color:#E9A13B;margin-bottom:6px">Show the work</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">If we can't publish it — the inspection, the fix list, the fee — we shouldn't be doing it. Transparency isn't a page on this site; it's the inventory system.</div>
+      </div>
+      <div style="border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:21px;color:#E9A13B;margin-bottom:6px">One fair number</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">Same price posted for everyone, same printed warranty sheet, same flat $499 fee. Nobody negotiates better than anybody's abuela here — because nobody has to.</div>
+      </div>
+      <div style="border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:21px;color:#E9A13B;margin-bottom:6px">Around after the sale</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">The 30-day warranty, the week-later check-in call, answering the WhatsApp six months on. Selling the car is the start of the relationship, not the end.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- team carousel -->
+  <div style="padding:40px 0 36px">
+    <div style="padding:0 20px;margin-bottom:16px">
+      <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.1;color:#2A1A12">The people you'll deal with</div>
+      <div style="font-size:14px;color:rgba(42,26,18,.65);margin-top:6px">No rotating cast of closers — this is the whole crew.</div>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 10px;scrollbar-width:none">
+      <div style="flex:0 0 80%;scroll-snap-align:start;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <div style="height:230px"><image-slot id="team-founder" shape="rect" placeholder="Founder — on the lot, not at a desk"></image-slot></div>
+        <div style="padding:16px">
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#2A1A12">Founder &amp; GM</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:rgba(42,26,18,.55);margin-top:4px">NAME TBD · EN/ES</div>
+          <div style="font-size:13.5px;line-height:1.55;color:rgba(42,26,18,.7);margin-top:8px">Sets every offer and signs every worksheet. If something's wrong, this is who calls you back.</div>
+        </div>
+      </div>
+      <div style="flex:0 0 80%;scroll-snap-align:start;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <div style="height:230px"><image-slot id="team-tech" shape="rect" placeholder="Lead tech — with the clipboard"></image-slot></div>
+        <div style="padding:16px">
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#2A1A12">Lead Technician</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:rgba(42,26,18,.55);margin-top:4px">NAME TBD · ASE CERTIFIED</div>
+          <div style="font-size:13.5px;line-height:1.55;color:rgba(42,26,18,.7);margin-top:8px">Runs the 132-point inspection and signs each report. The R. Delgado signature on the sample sheets? That's this job.</div>
+        </div>
+      </div>
+      <div style="flex:0 0 80%;scroll-snap-align:start;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <div style="height:230px"><image-slot id="team-sales" shape="rect" placeholder="Sales & finance — the person at the desk"></image-slot></div>
+        <div style="padding:16px">
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#2A1A12">Sales &amp; Finance</div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.08em;color:rgba(42,26,18,.55);margin-top:4px">NAME TBD · EN/ES</div>
+          <div style="font-size:13.5px;line-height:1.55;color:rgba(42,26,18,.7);margin-top:8px">Walks you through the worksheet and the lender approvals. Paid a flat rate per car — never on add-ons.</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11.5px;color:rgba(42,26,18,.5);padding:0 20px;letter-spacing:.04em">SWIPE TO MEET THE CREW →</div>
+  </div>
+
+  <!-- visit -->
+  <div id="contact" style="scroll-margin-top:66px;background:#EFE3CB;border-top:1px solid rgba(42,26,18,.1);padding:40px 20px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:10px">Come by, call, or write</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:34px;line-height:1.05;color:#2A1A12">Visit the lot</div>
+    <div style="margin-top:20px;border:1px solid rgba(42,26,18,.2);border-radius:14px;overflow:hidden;height:180px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);display:flex;align-items:center;justify-content:center">
+      <span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em;text-align:center;padding:0 20px">MAP EMBED — ADDRESS COMING SOON</span>
+    </div>
+    <div style="margin-top:16px;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:6px 18px">
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Address</span><span style="text-align:right">Coming soon · Miami, FL</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Mon–Sat</span><span>9:00a – 6:00p</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Sunday</span><span>Closed</span></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Phone / WhatsApp</span><a href="tel:+17868812283" style="font-weight:600">(786) 881-2283</a></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Email</span><a href="mailto:hello@revampmotors.com" style="font-weight:600;text-align:right;word-break:break-all">hello@revampmotors.com</a></div>
+      <div style="display:flex;justify-content:space-between;gap:12px;padding:12px 0;font-size:14px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Languages</span><span>English · Español</span></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <a href="tel:+17868812283" style="flex:1;display:flex;align-items:center;justify-content:center;height:50px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Call us</a>
+      <a href="https://wa.me/17868812283" style="flex:1;display:flex;align-items:center;justify-content:center;height:50px;border:1.5px solid #2A1A12;color:#2A1A12;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">WhatsApp</a>
+    </div>
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.08em;color:rgba(42,26,18,.5);margin-top:14px;line-height:1.5">FL DEALER LICENSE — PENDING · WILL BE POSTED HERE</div>
+
+    <!-- message form -->
+    <sc-if value="{{ msgSent }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:36px 22px;text-align:center;box-shadow:0 10px 30px rgba(42,26,18,.08);margin-top:28px">
+        <div style="width:56px;height:56px;border-radius:50%;background:#2A1A12;color:#E9A13B;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px">✓</div>
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:28px;color:#2A1A12">Message received</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(42,26,18,.72);margin-top:8px">A real person replies within business hours (Mon–Sat 9a–6p). Faster answer? <a href="https://wa.me/17868812283" style="font-weight:600">WhatsApp us</a>.</div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ msgNotSent }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:22px 18px;box-shadow:0 10px 30px rgba(42,26,18,.08);margin-top:28px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12;margin-bottom:4px">Send us a message</div>
+        <div style="font-size:13.5px;line-height:1.5;color:rgba(42,26,18,.65);margin-bottom:16px">Looking for a specific car, have a question, anything — replies within business hours.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input placeholder="First name" autocomplete="given-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Last name" autocomplete="family-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Email" type="email" autocomplete="email" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Phone" type="tel" autocomplete="tel" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+        </div>
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(42,26,18,.55);margin:16px 0 8px">TOPIC</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ topicChips }}" as="chip" hint-placeholder-count="4">
+            <span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span>
+          </sc-for>
+        </div>
+        <textarea placeholder="Your message — e.g. 'Looking for a Camry or Accord under $16k, automatic, by end of month.'" rows="4" style="width:100%;box-sizing:border-box;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;line-height:1.5;background:#F6EDDC;color:#2A1A12;outline:none;resize:vertical;margin-top:14px" data-focus="border-color:#C4502E"></textarea>
+        <div onClick="{{ sendMsg }}" style="display:flex;align-items:center;justify-content:center;height:52px;background:#C4502E;color:#F6EDDC;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:14px;cursor:pointer;user-select:none">Send message →</div>
+        <div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.55);text-align:center;margin-top:10px">Or just WhatsApp <a href="https://wa.me/17868812283" style="font-weight:600">(786) 881-2283</a> — same humans on the other end.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <dc-import name="M-Footer" legal="Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL dealer license pending. Pricing and availability subject to change." hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, topic: 'Finding a car' };
+  renderVals() {
+    const chip = (label) => {
+      const on = this.state.topic === label;
+      return {
+        label,
+        style: { display: 'inline-flex', alignItems: 'center', height: 44, padding: '0 15px', borderRadius: 99, cursor: 'pointer', fontSize: '14px', fontWeight: 600, userSelect: 'none', whiteSpace: 'nowrap', boxSizing: 'border-box', border: on ? '1.5px solid #2A1A12' : '1px solid rgba(42,26,18,.25)', background: on ? '#2A1A12' : 'transparent', color: on ? '#F6EDDC' : 'rgba(42,26,18,.75)' },
+        pick: () => this.setState({ topic: label })
+      };
+    };
+    return {
+      msgSent: this.state.sent,
+      msgNotSent: !this.state.sent,
+      topicChips: ['Finding a car', 'Selling mine', 'Financing', 'Other'].map(chip),
+      sendMsg: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Revamp Motors · Miami used cars, revamped</title>
+<link rel="icon" href="assets/favicon.ico">
+<style>body{margin:0;background:#F6EDDC}a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}</style>
+</helmet>
+<div style="min-height:100vh;background:#F6EDDC">
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><dc-import name="M-Home" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isInventory }}" hint-placeholder-val="{{ false }}"><dc-import name="M-Inventory" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isVehicle }}" hint-placeholder-val="{{ false }}"><dc-import name="M-Vehicle-Detail" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isSell }}" hint-placeholder-val="{{ false }}"><dc-import name="M-Sell-or-Trade" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isProcess }}" hint-placeholder-val="{{ false }}"><dc-import name="M-Our-Process" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isReviews }}" hint-placeholder-val="{{ false }}"><dc-import name="M-Reviews" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}"><dc-import name="M-FAQ" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><dc-import name="M-About-Contact" hint-size="100%,100vh"></dc-import></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  PAGES = { 'M-Home': '', 'M-Inventory': 'inventory', 'M-Vehicle-Detail': 'vehicle', 'M-Sell-or-Trade': 'sell-or-trade', 'M-Our-Process': 'our-process', 'M-Reviews': 'reviews', 'M-FAQ': 'faq', 'M-About-Contact': 'about' };
+  state = { page: 'M-Home' };
+  fromHash() {
+    const m = (location.hash || '').match(/^#\/([^#]*)(?:#(.+))?$/);
+    const slug = m ? m[1] : '';
+    const page = Object.keys(this.PAGES).find(k => this.PAGES[k] === slug) || 'M-Home';
+    return { page, anchor: m && m[2] };
+  }
+  scrollToAnchor(id, tries = 20) {
+    if (!id) { window.scrollTo(0, 0); return; }
+    const el = document.getElementById(id);
+    if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 66));
+    else if (tries > 0) setTimeout(() => this.scrollToAnchor(id, tries - 1), 100);
+  }
+  go(page, anchor) {
+    const hash = '#/' + this.PAGES[page] + (anchor ? '#' + anchor : '');
+    if (location.hash !== hash) history.pushState(null, '', hash);
+    document.body.style.overflow = '';
+    if (page !== this.state.page) this.setState({ page }, () => setTimeout(() => this.scrollToAnchor(anchor), 50));
+    else this.scrollToAnchor(anchor);
+  }
+  componentDidMount() {
+    this.onClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      const m = href.match(/^(?:\.\/)?(M-[A-Za-z-]+)\.dc\.html(?:#(.+))?$/);
+      if (m && this.PAGES[m[1]] !== undefined) { e.preventDefault(); this.go(m[1], m[2]); return; }
+      if (/^#[^/]/.test(href)) { e.preventDefault(); this.go(this.state.page, href.slice(1)); }
+    };
+    this.onPop = () => { const r = this.fromHash(); this.setState({ page: r.page }, () => setTimeout(() => this.scrollToAnchor(r.anchor), 50)); };
+    document.addEventListener('click', this.onClick);
+    window.addEventListener('popstate', this.onPop);
+    const r = this.fromHash(); this.setState({ page: r.page }); if (r.anchor) setTimeout(() => this.scrollToAnchor(r.anchor), 400);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
+    window.removeEventListener('popstate', this.onPop);
+  }
+  renderVals() {
+    const p = this.state.page;
+    return { isHome: p === 'M-Home', isInventory: p === 'M-Inventory', isVehicle: p === 'M-Vehicle-Detail', isSell: p === 'M-Sell-or-Trade', isProcess: p === 'M-Our-Process', isReviews: p === 'M-Reviews', isFaq: p === 'M-FAQ', isAbout: p === 'M-About-Contact' };
+  }
+}
+</script>
+</body>
+</html>

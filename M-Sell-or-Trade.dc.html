@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+input,select,textarea{font-family:Archivo,Helvetica,sans-serif}
+input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
+</style>
+</helmet>
+
+<div data-screen-label="Mobile · Sell or Trade" style="width:100%;max-width:480px;margin:0 auto;overflow-x:clip;background:#F6EDDC;min-height:100vh">
+  <dc-import name="M-Chrome" active="Sell or Trade" primary="offer" href="#offer" hint-size="100%,56px"></dc-import>
+
+  <!-- hero -->
+  <div style="background:#E9A13B;padding:24px 16px 32px">
+    <div style="border:2px solid #B87F27;box-shadow:inset 0 0 0 5px rgba(246,237,220,.45);border-radius:16px;padding:32px 20px 24px;position:relative">
+      <span style="position:absolute;top:14px;left:14px;width:8px;height:8px;border-radius:50%;background:#FDF8ED;border:1.5px solid #B87F27"></span>
+      <span style="position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:50%;background:#FDF8ED;border:1.5px solid #B87F27"></span>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8A4A1B;margin-bottom:10px">The Revamp Offer™</div>
+      <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:38px;line-height:1.02;color:#2A1A12">A real, written offer in 4 business hours.</div>
+      <p style="font-size:15.5px;line-height:1.6;color:rgba(42,26,18,.78);margin:14px 0 0">Sell outright or trade toward one of ours — same 2-minute form. A human appraiser sets the number, explains it line by line, and it's valid for 7 days. We routinely beat the algorithm quotes.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:18px;font-size:14px;font-weight:600;color:#2A1A12">
+        <span>✓ No appointment to get it</span>
+        <span>✓ No obligation</span>
+        <span>✓ Paid same day</span>
+      </div>
+      <a href="#offer" style="display:flex;align-items:center;justify-content:center;height:52px;background:#C4502E;color:#F6EDDC;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:22px">Start my offer ↓</a>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.2);border-radius:14px;padding:20px 18px;box-shadow:0 16px 40px rgba(42,26,18,.2);transform:rotate(.6deg);margin-top:26px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px solid #2A1A12;padding-bottom:12px">
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:#2A1A12;line-height:1.4">WRITTEN OFFER — 2016 HONDA CIVIC LX</span>
+          <span style="flex:none;border:2px solid #C4502E;color:#C4502E;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 9px;border-radius:5px;transform:rotate(4deg);white-space:nowrap">VALID 7 DAYS</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 6px">
+          <span style="font-size:13.5px;color:rgba(42,26,18,.65);white-space:nowrap">Our offer, in writing</span>
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:40px;line-height:1;color:#2A1A12">$9,400</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px dotted rgba(42,26,18,.25);font-size:13px;color:rgba(42,26,18,.7)"><span>Big-box algorithm quote</span><span style="font-family:ui-monospace,Menlo,monospace">$8,650</span></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px dotted rgba(42,26,18,.25);font-size:13px;color:rgba(42,26,18,.7)"><span style="flex:none">Why ours is higher</span><span style="color:#C4502E;font-weight:600;text-align:right">clean local history + trim demand</span></div>
+        <div style="font-size:12px;color:rgba(42,26,18,.55);margin-top:10px;line-height:1.5">Bring it by, we verify condition, you get paid same day.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- steps intro -->
+  <div style="padding:40px 20px 0">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:10px">2 minutes · from your phone</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:32px;line-height:1.05;color:#2A1A12">Start your offer</div>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:20px">
+      <div style="display:flex;gap:12px"><span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:13px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;width:28px;height:28px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex:none">1</span><span style="font-size:14.5px;line-height:1.55;color:rgba(42,26,18,.75)"><strong style="color:#2A1A12">Tell us the car.</strong> VIN or plate + mileage is all we need to start.</span></div>
+      <div style="display:flex;gap:12px"><span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:13px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;width:28px;height:28px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex:none">2</span><span style="font-size:14.5px;line-height:1.55;color:rgba(42,26,18,.75)"><strong style="color:#2A1A12">Quick condition check.</strong> Three taps — be honest, the offer holds up better.</span></div>
+      <div style="display:flex;gap:12px"><span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:13px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;width:28px;height:28px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex:none">3</span><span style="font-size:14.5px;line-height:1.55;color:rgba(42,26,18,.75)"><strong style="color:#2A1A12">Get the number in writing.</strong> By text or WhatsApp within 4 business hours, valid 7 days.</span></div>
+    </div>
+  </div>
+
+  <!-- the form -->
+  <div id="offer" style="scroll-margin-top:66px;padding:24px 20px 0">
+    <sc-if value="{{ offerSent }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:36px 22px;text-align:center;box-shadow:0 10px 30px rgba(42,26,18,.1)">
+        <div style="width:56px;height:56px;border-radius:50%;background:#2A1A12;color:#E9A13B;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px">✓</div>
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:28px;line-height:1.1;color:#2A1A12">On it — the clock is running</div>
+        <div style="font-size:14.5px;line-height:1.65;color:rgba(42,26,18,.72);margin-top:10px">A human appraiser (not an algorithm) is working your number now. You'll have a <strong>written offer within 4 business hours</strong> (Mon–Sat 9a–6p), valid 7 days.</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px">
+          <a href="M-Inventory.dc.html" style="display:flex;align-items:center;justify-content:center;height:50px;background:#2A1A12;color:#F6EDDC;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Browse cars while you wait</a>
+          <a href="https://wa.me/17868812283" style="display:flex;align-items:center;justify-content:center;height:50px;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Add photos on WhatsApp</a>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ offerNotSent }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:22px 18px;box-shadow:0 10px 30px rgba(42,26,18,.1)">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#C4502E;margin-bottom:10px">STEP 1 — YOUR CAR</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <input placeholder="VIN or license plate #" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;width:100%;box-sizing:border-box" data-focus="border-color:#C4502E">
+          <input placeholder="Mileage" inputmode="numeric" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;width:100%;box-sizing:border-box" data-focus="border-color:#C4502E">
+        </div>
+
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#C4502E;margin:24px 0 6px">STEP 2 — QUICK CONDITION CHECK</div>
+        <div style="font-size:13px;color:rgba(42,26,18,.7);margin:10px 0 8px">Title status</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ titleChips }}" as="chip" hint-placeholder-count="3"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div style="font-size:13px;color:rgba(42,26,18,.7);margin:14px 0 8px">Condition</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ condChips }}" as="chip" hint-placeholder-count="4"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div style="font-size:13px;color:rgba(42,26,18,.7);margin:14px 0 8px">Accidents?</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ accChips }}" as="chip" hint-placeholder-count="3"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#C4502E;margin:24px 0 10px">STEP 3 — YOU</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input placeholder="First name" autocomplete="given-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Last name" autocomplete="family-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Email" type="email" autocomplete="email" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Phone" type="tel" autocomplete="tel" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+        </div>
+        <div style="font-size:13px;color:rgba(42,26,18,.7);margin:14px 0 8px">I want to</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ intentChips }}" as="chip" hint-placeholder-count="3"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div style="font-size:13px;color:rgba(42,26,18,.7);margin:14px 0 8px">Send my offer by</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ contactChips }}" as="chip" hint-placeholder-count="3"><span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span></sc-for>
+        </div>
+        <div onClick="{{ sendOffer }}" style="display:flex;align-items:center;justify-content:center;height:54px;background:#C4502E;color:#F6EDDC;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:24px;cursor:pointer;user-select:none">Get my written offer →</div>
+        <div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.55);text-align:center;margin-top:10px">No login, no spam — your number is used for this offer only.</div>
+      </div>
+    </sc-if>
+    <div style="background:#EFE3CB;border:1px solid rgba(42,26,18,.12);border-radius:12px;padding:16px 18px;margin-top:18px">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#2A1A12;margin-bottom:6px">TRADING IN? FLORIDA MATH BONUS</div>
+      <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.75)">FL sales tax applies only to the <em>difference</em> — a $9,000 trade on a $15,000 car saves you ~$630 in tax on top of the offer.</div>
+    </div>
+    <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.65);margin-top:16px;padding-bottom:40px">Prefer WhatsApp? Send your VIN + a few photos to <a href="https://wa.me/17868812283" style="font-weight:700">(786) 881-2283</a> and we'll take it from there.</div>
+  </div>
+
+  <!-- why ours beats -->
+  <div style="background:#2A1A12;padding:44px 20px">
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.1;color:#F6EDDC;margin-bottom:20px">Why our number beats the big-box quote</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="background:rgba(246,237,220,.07);border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#E9A13B;margin-bottom:6px">A human sets it</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">Algorithms price for the worst case. Our appraiser looks at your actual car — clean local history and desirable trims get credited, not averaged away.</div>
+      </div>
+      <div style="background:rgba(246,237,220,.07);border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#E9A13B;margin-bottom:6px">We retail what we buy</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">Big chains wholesale your car at auction. We recondition and sell it on our own lot — so we can pay closer to what it's really worth.</div>
+      </div>
+      <div style="background:rgba(246,237,220,.07);border:1px solid rgba(246,237,220,.18);border-radius:14px;padding:20px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:20px;color:#E9A13B;margin-bottom:6px">The number is explained</div>
+        <div style="font-size:14.5px;line-height:1.6;color:rgba(246,237,220,.72)">Your written offer shows the comparable sales and any deductions — line by line. If we can't beat your best quote, we'll tell you to take it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- what to bring -->
+  <div style="padding:44px 20px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:10px">Offer in hand?</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;line-height:1.1;color:#2A1A12">Bring these and drive out paid.</div>
+    <p style="font-size:15px;line-height:1.65;color:rgba(42,26,18,.72);margin:12px 0 20px">We verify condition in about 20 minutes. If the car matches what you told us, the number doesn't move. Check or same-day transfer — your pick.</p>
+    <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:6px 18px">
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:18px;height:18px;border:2px solid #2A1A12;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#C4502E;font-weight:800;flex:none;margin-top:2px">✓</span><span style="font-size:14.5px;line-height:1.5;color:#2A1A12">The title (or your lender's payoff letter if financed)</span></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:18px;height:18px;border:2px solid #2A1A12;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#C4502E;font-weight:800;flex:none;margin-top:2px">✓</span><span style="font-size:14.5px;line-height:1.5;color:#2A1A12">Valid driver's license — all owners on the title</span></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px dotted rgba(42,26,18,.25)"><span style="width:18px;height:18px;border:2px solid #2A1A12;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#C4502E;font-weight:800;flex:none;margin-top:2px">✓</span><span style="font-size:14.5px;line-height:1.5;color:#2A1A12">All keys, fobs &amp; the owner's manual if you have it</span></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0"><span style="width:18px;height:18px;border:2px solid #2A1A12;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#C4502E;font-weight:800;flex:none;margin-top:2px">✓</span><span style="font-size:14.5px;line-height:1.5;color:#2A1A12">Your written Revamp Offer (on your phone is fine)</span></div>
+    </div>
+  </div>
+
+  <dc-import name="M-Footer" legal="Offers are contingent on in-person condition verification and clear title. Tax savings on trades depend on your transaction; consult the worksheet. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty. FL dealer license pending." hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, title: 'Clean — paid off', cond: 'Good', acc: 'None', intent: 'Sell', contact: 'Text' };
+  chip(group, label) {
+    const on = this.state[group] === label;
+    return {
+      label,
+      style: { display: 'inline-flex', alignItems: 'center', height: 44, padding: '0 15px', borderRadius: 99, cursor: 'pointer', fontSize: '14px', fontWeight: 600, userSelect: 'none', whiteSpace: 'nowrap', boxSizing: 'border-box', border: on ? '1.5px solid #2A1A12' : '1px solid rgba(42,26,18,.25)', background: on ? '#2A1A12' : 'transparent', color: on ? '#F6EDDC' : 'rgba(42,26,18,.75)' },
+      pick: () => this.setState({ [group]: label })
+    };
+  }
+  renderVals() {
+    return {
+      offerSent: this.state.sent,
+      offerNotSent: !this.state.sent,
+      titleChips: ['Clean — paid off', 'Financed — has payoff', 'Other'].map((l) => this.chip('title', l)),
+      condChips: ['Excellent', 'Good', 'Fair', 'Needs work'].map((l) => this.chip('cond', l)),
+      accChips: ['None', 'Minor, repaired', 'Major'].map((l) => this.chip('acc', l)),
+      intentChips: ['Sell', 'Trade', 'Not sure yet'].map((l) => this.chip('intent', l)),
+      contactChips: ['Text', 'WhatsApp', 'Call'].map((l) => this.chip('contact', l)),
+      sendOffer: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

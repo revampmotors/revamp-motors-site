@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+</style>
+</helmet>
+
+<div data-screen-label="Mobile · FAQ" style="width:100%;max-width:480px;margin:0 auto;overflow-x:clip;background:#F6EDDC;min-height:100vh">
+  <dc-import name="M-Chrome" active="FAQ" hint-size="100%,56px"></dc-import>
+
+  <!-- header -->
+  <div style="padding:26px 20px 16px">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:8px">Straight answers</div>
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:36px;line-height:1.02;color:#2A1A12">Questions we actually get</div>
+    <div style="font-size:14px;line-height:1.55;color:rgba(42,26,18,.65);margin-top:10px">Not answered here? <a href="https://wa.me/17868812283" style="font-weight:600">WhatsApp us</a> or call <a href="tel:+17868812283" style="font-weight:600">(786) 881-2283</a> — a person picks up, English or Spanish.</div>
+  </div>
+
+  <!-- sticky categories -->
+  <div style="position:sticky;top:56px;z-index:40;background:#F6EDDC;border-bottom:1px solid rgba(42,26,18,.12);padding:10px 0 12px">
+    <div style="display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none">
+      <sc-for list="{{ catChips }}" as="chip" hint-placeholder-count="5">
+        <span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- accordion -->
+  <div style="padding:16px 20px 8px;display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="6">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;overflow:hidden">
+        <div onClick="{{ item.toggle }}" style="display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none;min-height:60px;box-sizing:border-box">
+          <span style="display:flex;flex-direction:column;gap:5px;min-width:0">
+            <span style="font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.1em;color:#C4502E">{{ item.cat }}</span>
+            <span style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:18px;line-height:1.2;color:#2A1A12">{{ item.q }}</span>
+          </span>
+          <span style="{{ item.arrowStyle }}">▾</span>
+        </div>
+        <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:0 18px 18px;padding-top:14px;border-top:1px dotted rgba(42,26,18,.2);font-size:15px;line-height:1.65;color:rgba(42,26,18,.78)">{{ item.a }}</div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- still stuck -->
+  <div style="padding:16px 20px 44px">
+    <div style="background:#EFE3CB;border:1px solid rgba(42,26,18,.12);border-radius:12px;padding:18px">
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#2A1A12;margin-bottom:6px">STILL STUCK?</div>
+      <div style="font-size:14px;line-height:1.55;color:rgba(42,26,18,.7)">Ask on WhatsApp — usual reply within the business hour.</div>
+      <a href="https://wa.me/17868812283" style="display:flex;align-items:center;justify-content:center;height:48px;border:1.5px solid #2A1A12;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:14px">✆ WhatsApp (786) 881-2283</a>
+    </div>
+  </div>
+
+  <!-- CTA band -->
+  <div style="background:#E9A13B;padding:36px 20px">
+    <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:28px;line-height:1.1;color:#2A1A12">Easier to just come kick the tires?</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
+      <a href="M-Inventory.dc.html" style="display:flex;align-items:center;justify-content:center;height:52px;background:#2A1A12;color:#F6EDDC;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Browse the lot</a>
+      <a href="M-About-Contact.dc.html#contact" style="display:flex;align-items:center;justify-content:center;height:50px;border:2px solid #2A1A12;color:#2A1A12;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Hours &amp; directions</a>
+    </div>
+  </div>
+
+  <dc-import name="M-Footer" legal="Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL dealer license pending. Pricing and availability subject to change." hint-size="100%,640px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 'All', open: 0 };
+  data() {
+    return [
+      { cat: 'BUYING', q: 'Do I need an appointment?', a: 'No — walk-ins are welcome Mon–Sat 9a–6p. But if you book a test drive, your car is pulled up, cooled down, and ready with the worksheet printed. Appointments always get the car first.' },
+      { cat: 'BUYING', q: 'Can my own mechanic inspect the car before I buy?', a: 'Please do. Take the car to any licensed shop within reason, or have a mobile inspector meet you here. Our 132-point report is published, but a second opinion never offends us — that is the point of showing our work.' },
+      { cat: 'BUYING', q: 'Are your prices negotiable?', a: 'We price to market when the car is listed — usually 94–97% of local comparable sales, and the range is shown on the listing. If a car sits 21 days, the price drops publicly. So no, we do not do the back-and-forth; the posted number is the real number for everyone.' },
+      { cat: 'BUYING', q: 'What fees are added on top of the price?', a: 'Exactly three things: FL sales tax (+ county surtax), tag/title/registration at state cost, and our flat $499 dealer fee. The full out-the-door worksheet is on every listing before you visit. No doc-fee surprises, no pre-loaded add-ons.' },
+      { cat: 'BUYING', q: 'Can you hold a car for me?', a: 'A refundable deposit holds any car for 48 hours while you arrange financing or an inspection. Deposits are returned same-day if you pass — no questions, no forms.' },
+      { cat: 'FINANCING', q: 'What credit score do I need?', a: 'There is no cutoff. Strong credit gets shopped to our bank and credit-union partners for the best rate. Thin file or rough history goes through our in-house program — proof of income, proof of residence, and a reasonable down payment. On-time payments are reported, so your score rebuilds while you drive.' },
+      { cat: 'FINANCING', q: 'Does getting pre-qualified hurt my credit?', a: 'No. Pre-qualification is a soft pull — zero score impact. A hard inquiry only happens when you pick a car and submit a full application, and we tell you before it happens.' },
+      { cat: 'FINANCING', q: 'What do I need to bring to finance?', a: 'Driver\u2019s license, proof of income (recent pay stubs or bank statements), proof of residence (a utility bill works), and your down payment. Financing through your own bank or credit union? Just bring the approval letter — we work with it happily.' },
+      { cat: 'FINANCING', q: 'How much down payment do I need?', a: 'Bank-financed deals can go as low as $0 down with strong credit. In-house deals typically want 10–20% down. Every listing shows an estimated payment; the worksheet shows your real one before you sign anything.' },
+      { cat: 'SELLING', q: 'How fast do I really get an offer?', a: 'A written offer within 4 business hours of your form or WhatsApp message (Mon–Sat 9a–6p). It is set by a human appraiser, explained line by line, and valid for 7 days.' },
+      { cat: 'SELLING', q: 'Do I have to buy a car from you to sell mine?', a: 'No. Selling outright is completely fine — you get paid by check or same-day transfer once we verify condition and title. Trading in just adds a tax bonus: FL taxes only the difference between your trade value and the car you buy.' },
+      { cat: 'SELLING', q: 'My car isn\u2019t paid off. Can I still sell it?', a: 'Yes — bring your lender\u2019s payoff letter. We pay the lender directly and hand you the difference. If you owe more than the offer, you cover the gap and we handle the paperwork either way.' },
+      { cat: 'WARRANTY', q: 'What warranty comes with the car?', a: 'Every retail car includes a free 30-day / 1,000-mile limited powertrain warranty — engine, transmission, drive axle — in writing on the buyer\u2019s order. It is automatic; you do not ask for it or pay for it.' },
+      { cat: 'WARRANTY', q: 'What are the extended warranty options?', a: 'Optional third-party plans up to 3 years / 36,000 miles, usable at any licensed repair shop — not just ours. Prices are on a printed public sheet, the same for every customer, and nobody at the desk is paid commission to push them.' },
+      { cat: 'WARRANTY', q: 'Something feels off two days after I bought it. Now what?', a: 'Call or WhatsApp us first — (786) 881-2283. If it is powertrain, the 30-day warranty covers it. If it is something smaller we missed, bring it by; we would rather fix a $60 issue than lose the review. This is also why we call you a week after delivery.' }
+    ];
+  }
+  renderVals() {
+    const cats = ['All', 'Buying', 'Financing', 'Selling', 'Warranty'];
+    const list = this.data().map((f, i) => ({ ...f, idx: i })).filter((f) => this.state.cat === 'All' || f.cat === this.state.cat.toUpperCase());
+    const faqs = list.map((f) => {
+      const open = this.state.open === f.idx;
+      return {
+        ...f, open,
+        arrowStyle: { color: '#C4502E', fontSize: '18px', flex: 'none', width: 32, height: 32, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, background: open ? 'rgba(196,80,46,.1)' : 'transparent', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .18s' },
+        toggle: () => this.setState({ open: open ? -1 : f.idx })
+      };
+    });
+    const catChips = cats.map((label) => {
+      const on = this.state.cat === label;
+      return {
+        label,
+        style: { display: 'inline-flex', alignItems: 'center', height: 44, padding: '0 16px', borderRadius: 99, cursor: 'pointer', fontSize: '14px', fontWeight: 600, userSelect: 'none', whiteSpace: 'nowrap', flex: 'none', boxSizing: 'border-box', background: on ? '#2A1A12' : '#FDF8ED', color: on ? '#F6EDDC' : 'rgba(42,26,18,.75)', border: on ? '1.5px solid #2A1A12' : '1px solid rgba(42,26,18,.25)' },
+        pick: () => this.setState({ cat: label, open: -1 })
+      };
+    });
+    return { faqs, catChips };
+  }
+}
+</script>
+</body>
+</html>

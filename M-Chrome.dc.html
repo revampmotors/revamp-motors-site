@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(196,80,46,.12)}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+input,select,textarea{font-family:Archivo,Helvetica,sans-serif}
+input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
+@keyframes m-slide-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes m-slide-in{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes m-fade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="height:56px"></div>
+
+<!-- fixed header -->
+<div style="position:fixed;top:0;left:0;right:0;max-width:480px;margin:0 auto;z-index:60;background:#F6EDDC;border-bottom:1px solid rgba(42,26,18,.12);display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 12px 0 16px;box-sizing:border-box">
+  <a href="M-Home.dc.html" style="display:flex;align-items:center;height:44px"><img src="assets/logo-horizontal-light.png" alt="Revamp Motors" style="height:36px;display:block"></a>
+  <div onClick="{{ openDrawer }}" role="button" aria-label="Open menu" style="display:flex;align-items:center;gap:9px;height:44px;padding:0 13px;border:1.5px solid rgba(42,26,18,.28);border-radius:8px;cursor:pointer;user-select:none;background:#FDF8ED">
+    <span style="display:flex;flex-direction:column;gap:4px"><span style="display:block;width:16px;height:2px;background:#2A1A12;border-radius:1px"></span><span style="display:block;width:16px;height:2px;background:#2A1A12;border-radius:1px"></span><span style="display:block;width:16px;height:2px;background:#2A1A12;border-radius:1px"></span></span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#2A1A12;white-space:nowrap">MENU</span>
+  </div>
+</div>
+
+<!-- drawer -->
+<sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:rgba(42,26,18,.6);display:flex;justify-content:center;animation:m-fade .15s ease-out">
+  <div style="width:100%;max-width:480px;background:#2A1A12;color:#F6EDDC;display:flex;flex-direction:column;overflow-y:auto;scrollbar-width:none;animation:m-slide-in .22s ease-out">
+    <div style="display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 12px 0 16px;flex:none;border-bottom:1px solid rgba(246,237,220,.12)">
+      <img src="assets/logo-horizontal-dark.png" alt="Revamp Motors" style="height:36px;display:block">
+      <div onClick="{{ closeDrawer }}" role="button" aria-label="Close menu" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 13px;border:1.5px solid rgba(246,237,220,.3);border-radius:8px;cursor:pointer;user-select:none"><span style="font-size:16px;line-height:1">✕</span><span style="font-size:11px;font-weight:700;letter-spacing:.14em;white-space:nowrap">CLOSE</span></div>
+    </div>
+    <div onClick="{{ closeDrawer }}" style="display:flex;flex-direction:column;padding:6px 20px 0">
+      <sc-for list="{{ navItems }}" as="it" hint-placeholder-count="7">
+        <a href="{{ it.href }}" style="{{ it.style }}"><span>{{ it.label }}</span><span style="{{ it.arrowStyle }}">→</span></a>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;padding:22px 20px 0">
+      <span onClick="{{ drawerDrive }}" style="display:flex;align-items:center;justify-content:center;height:52px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;cursor:pointer;user-select:none">Book a test drive</span>
+      <span onClick="{{ drawerOffer }}" style="display:flex;align-items:center;justify-content:center;height:52px;border:1.5px solid rgba(246,237,220,.45);color:#F6EDDC;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;cursor:pointer;user-select:none">Get an offer on my car</span>
+    </div>
+    <div style="margin-top:auto;padding:26px 20px calc(28px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:9px;font-size:14px;color:rgba(246,237,220,.75)">
+      <span style="font-size:10.5px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:2px">TALK TO A HUMAN</span>
+      <a href="tel:+17868812283" style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:28px;line-height:1.1;color:#F6EDDC">(786) 881-2283</a>
+      <a href="https://wa.me/17868812283" style="color:#E9A13B;font-weight:600">✆ WhatsApp us — usual reply within the hour</a>
+      <a href="mailto:hello@revampmotors.com" style="color:rgba(246,237,220,.75)">hello@revampmotors.com</a>
+      <span>Mon–Sat 9a–6p · Sun closed · Miami, FL</span>
+      <span style="color:#E9A13B;font-weight:600">Hablamos español</span>
+    </div>
+  </div>
+  </div>
+</sc-if>
+
+<!-- bottom action bar -->
+<div style="position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;z-index:60;background:#FDF8ED;border-top:1px solid rgba(42,26,18,.14);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;box-shadow:0 -6px 20px rgba(42,26,18,.08);box-sizing:border-box">
+  <a href="tel:+17868812283" style="flex:none;display:flex;align-items:center;justify-content:center;height:48px;padding:0 13px;border:1.5px solid rgba(42,26,18,.3);border-radius:8px;color:#2A1A12;font-size:clamp(10.5px,3.1vw,12px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap">Call</a>
+  <a href="https://wa.me/17868812283" style="flex:none;display:flex;align-items:center;justify-content:center;gap:5px;height:48px;padding:0 13px;border:1.5px solid rgba(42,26,18,.3);border-radius:8px;color:#2A1A12;font-size:clamp(10.5px,3.1vw,12px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap">✆ WhatsApp</a>
+  <sc-if value="{{ driveModal }}" hint-placeholder-val="{{ true }}">
+    <span onClick="{{ openDrive }}" style="flex:1;min-width:0;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;border-radius:8px;font-size:clamp(10.5px,3.1vw,12px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;user-select:none;white-space:nowrap">Book a test drive</span>
+  </sc-if>
+  <sc-if value="{{ driveLink }}" hint-placeholder-val="{{ false }}">
+    <a href="{{ href }}" style="flex:1;min-width:0;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;border-radius:8px;font-size:clamp(10.5px,3.1vw,12px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap">Book a test drive</a>
+  </sc-if>
+  <sc-if value="{{ offerLink }}" hint-placeholder-val="{{ false }}">
+    <a href="{{ href }}" style="flex:1;min-width:0;display:flex;align-items:center;justify-content:center;height:48px;background:#C4502E;color:#F6EDDC;border-radius:8px;font-size:clamp(10.5px,3.1vw,12px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap">Get my offer</a>
+  </sc-if>
+</div>
+
+<!-- lead sheet -->
+<sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:100;background:rgba(42,26,18,.6);display:flex;align-items:flex-end;animation:m-fade .15s ease-out">
+    <div onClick="{{ swallow }}" style="background:#FDF8ED;border-radius:18px 18px 0 0;width:100%;max-width:480px;margin:0 auto;box-sizing:border-box;box-shadow:0 -20px 60px rgba(0,0,0,.35);padding:14px 20px calc(22px + env(safe-area-inset-bottom));position:relative;max-height:92vh;overflow-y:auto;animation:m-slide-up .25s ease-out">
+      <div style="width:40px;height:4px;border-radius:2px;background:rgba(42,26,18,.18);margin:0 auto 14px"></div>
+      <div onClick="{{ closeModal }}" role="button" aria-label="Close" style="position:absolute;top:10px;right:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;color:rgba(42,26,18,.55);line-height:1">✕</div>
+      <sc-if value="{{ leadNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-right:40px"><img src="assets/icon.png" alt="" style="width:26px;height:26px"><span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;line-height:1.1;color:#2A1A12">{{ modalTitle }}</span></div>
+        <div style="font-size:14px;line-height:1.55;color:rgba(42,26,18,.65);margin-bottom:16px">{{ modalSub }}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input placeholder="First name" autocomplete="given-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Last name" autocomplete="family-name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Email" type="email" autocomplete="email" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="Phone" type="tel" autocomplete="tel" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+          <input placeholder="{{ modalCtx }}" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:14px;font-size:16px;background:#F6EDDC;color:#2A1A12;outline:none;min-width:0" data-focus="border-color:#C4502E">
+        </div>
+        <sc-if value="{{ isOffer }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ sendLead }}" style="display:flex;align-items:center;justify-content:center;height:52px;background:#C4502E;color:#F6EDDC;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:14px;cursor:pointer;user-select:none">Get my written offer →</div>
+        </sc-if>
+        <sc-if value="{{ isDrive }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ sendLead }}" style="display:flex;align-items:center;justify-content:center;height:52px;background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:14px;cursor:pointer;user-select:none">Request test drive →</div>
+        </sc-if>
+        <div style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.55);text-align:center;margin-top:12px">No spam — we only text you back. Prefer WhatsApp? <a href="https://wa.me/17868812283" style="font-weight:600">(786) 881-2283</a></div>
+      </sc-if>
+      <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:10px 0 4px">
+          <div style="width:56px;height:56px;border-radius:50%;background:#2A1A12;color:#E9A13B;display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:12px">✓</div>
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:26px;color:#2A1A12">Got it — we’re on it</div>
+          <div style="font-size:14.5px;line-height:1.6;color:rgba(42,26,18,.7);margin-top:8px">{{ modalDone }}</div>
+          <div onClick="{{ closeModal }}" style="display:flex;align-items:center;justify-content:center;height:50px;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap;margin-top:18px;cursor:pointer;user-select:none">Close</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;Inventory&quot;,&quot;Sell or Trade&quot;,&quot;Our Process&quot;,&quot;Reviews&quot;,&quot;FAQ&quot;,&quot;About &amp; Contact&quot;]},&quot;primary&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;drive&quot;,&quot;tsType&quot;:&quot;'drive' | 'offer'&quot;,&quot;options&quot;:[&quot;drive&quot;,&quot;offer&quot;]},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { drawer: false, modal: null, leadSent: false };
+  ref = React.createRef();
+  scroller() { const el = this.ref.current; return (el && el.closest('[data-m-scroll]')) || document.body; }
+  lock(force) {
+    const el = this.scroller();
+    const want = force === false ? false : !!(this.state.drawer || this.state.modal);
+    if (want && !el.__mLockChrome) { el.__mLockChrome = { v: el.style.overflowY }; el.style.overflowY = 'hidden'; }
+    else if (!want && el.__mLockChrome) { el.style.overflowY = el.__mLockChrome.v; el.__mLockChrome = null; }
+  }
+  componentDidUpdate() { this.lock(); }
+  componentWillUnmount() { this.lock(false); }
+  renderVals() {
+    const rootRef = this.ref;
+    const active = this.props.active || '';
+    const pages = [['Home', 'M-Home.dc.html'], ['Inventory', 'M-Inventory.dc.html'], ['Sell or Trade', 'M-Sell-or-Trade.dc.html'], ['Our Process', 'M-Our-Process.dc.html'], ['Reviews', 'M-Reviews.dc.html'], ['FAQ', 'M-FAQ.dc.html'], ['About & Contact', 'M-About-Contact.dc.html']];
+    const navItems = pages.map(([label, href]) => {
+      const on = label === active;
+      return {
+        label, href,
+        style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', minHeight: 54, padding: '4px 0', borderBottom: '1px solid rgba(246,237,220,.1)', fontFamily: 'Rokkitt,Georgia,serif', fontWeight: 800, fontSize: 25, lineHeight: 1.1, whiteSpace: 'nowrap', color: on ? '#E9A13B' : '#F6EDDC' },
+        arrowStyle: { fontSize: 20, color: on ? '#E9A13B' : 'rgba(246,237,220,.4)' }
+      };
+    });
+    const kind = this.state.modal;
+    const primary = this.props.primary || 'drive';
+    const href = this.props.href || '';
+    return {
+      rootRef,
+      navItems,
+      drawerOpen: this.state.drawer,
+      openDrawer: () => this.setState({ drawer: true }),
+      closeDrawer: () => this.setState({ drawer: false }),
+      drawerDrive: () => this.setState({ drawer: false, modal: 'drive', leadSent: false }),
+      drawerOffer: () => this.setState({ drawer: false, modal: 'offer', leadSent: false }),
+      driveModal: primary === 'drive' && !href,
+      driveLink: primary === 'drive' && !!href,
+      offerLink: primary === 'offer' && !!href,
+      href,
+      modalOpen: !!kind,
+      isOffer: kind === 'offer',
+      isDrive: kind !== 'offer',
+      leadSent: this.state.leadSent,
+      leadNotSent: !this.state.leadSent,
+      modalTitle: kind === 'offer' ? 'Get an offer on your car' : 'Book a test drive',
+      modalSub: kind === 'offer' ? 'VIN + phone is all we need to start. A human appraiser texts your written offer within 4 business hours — valid 7 days.' : 'Tell us who and which car. We\u2019ll text to confirm a time — the car will be pulled up and ready.',
+      modalCtx: kind === 'offer' ? 'VIN or plate + mileage' : 'Which car? e.g. 2020 Kia Forte',
+      modalDone: kind === 'offer' ? 'Your written offer arrives by text within 4 business hours (Mon\u2013Sat 9a\u20136p).' : 'We\u2019ll text to confirm your test drive within business hours (Mon\u2013Sat 9a\u20136p).',
+      openDrive: () => this.setState({ modal: 'drive', leadSent: false }),
+      closeModal: () => this.setState({ modal: null }),
+      swallow: (e) => e.stopPropagation(),
+      sendLead: () => this.setState({ leadSent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

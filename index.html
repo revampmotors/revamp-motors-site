@@ -9,64 +9,29 @@
 <x-dc>
 <helmet>
 <title>Revamp Motors · Miami used cars, revamped</title>
+<meta name="description" content="Every car personally inspected, priced to the market, sold with the full story. Out-the-door numbers, in English or Spanish. Miami, FL.">
 <link rel="icon" href="assets/favicon.ico">
-<style>body{margin:0;background:#F6EDDC}a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}</style>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F6EDDC}</style>
 </helmet>
-<div style="min-height:100vh;background:#F6EDDC">
-  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}"><dc-import name="Home" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isInventory }}" hint-placeholder-val="{{ false }}"><dc-import name="Inventory" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isVehicle }}" hint-placeholder-val="{{ false }}"><dc-import name="Vehicle-Detail" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isSell }}" hint-placeholder-val="{{ false }}"><dc-import name="Sell-or-Trade" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isProcess }}" hint-placeholder-val="{{ false }}"><dc-import name="Our-Process" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isReviews }}" hint-placeholder-val="{{ false }}"><dc-import name="Reviews" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}"><dc-import name="FAQ" hint-size="100%,100vh"></dc-import></sc-if>
-  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}"><dc-import name="About-Contact" hint-size="100%,100vh"></dc-import></sc-if>
+<div>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}"><dc-import name="Website" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}"><dc-import name="Mobile-Website" hint-size="100%,100vh"></dc-import></sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  PAGES = { 'Home': '', 'Inventory': 'inventory', 'Vehicle-Detail': 'vehicle', 'Sell-or-Trade': 'sell-or-trade', 'Our-Process': 'our-process', 'Reviews': 'reviews', 'FAQ': 'faq', 'About-Contact': 'about' };
-  state = { page: 'Home' };
-  fromHash() {
-    const m = (location.hash || '').match(/^#\/([^#]*)(?:#(.+))?$/);
-    const slug = m ? m[1] : '';
-    const page = Object.keys(this.PAGES).find(k => this.PAGES[k] === slug) || 'Home';
-    return { page, anchor: m && m[2] };
-  }
-  scrollToAnchor(id, tries = 20) {
-    if (!id) { window.scrollTo(0, 0); return; }
-    const el = document.getElementById(id);
-    if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 10);
-    else if (tries > 0) setTimeout(() => this.scrollToAnchor(id, tries - 1), 100);
-  }
-  go(page, anchor) {
-    const hash = '#/' + this.PAGES[page] + (anchor ? '#' + anchor : '');
-    if (location.hash !== hash) history.pushState(null, '', hash);
-    if (page !== this.state.page) this.setState({ page }, () => setTimeout(() => this.scrollToAnchor(anchor), 50));
-    else this.scrollToAnchor(anchor);
-  }
+  state = { mobile: window.matchMedia('(max-width: 1023px)').matches };
   componentDidMount() {
-    this.onClick = (e) => {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey) return;
-      const a = e.target.closest && e.target.closest('a[href]');
-      if (!a) return;
-      const href = a.getAttribute('href');
-      const m = href.match(/^(?:\.\/)?([A-Za-z-]+)\.dc\.html(?:#(.+))?$/);
-      if (m && this.PAGES[m[1]] !== undefined) { e.preventDefault(); this.go(m[1], m[2]); return; }
-      if (/^#[^/]/.test(href)) { e.preventDefault(); this.go(this.state.page, href.slice(1)); }
-    };
-    this.onPop = () => { const r = this.fromHash(); this.setState({ page: r.page }, () => setTimeout(() => this.scrollToAnchor(r.anchor), 50)); };
-    document.addEventListener('click', this.onClick);
-    window.addEventListener('popstate', this.onPop);
-    const r = this.fromHash(); this.setState({ page: r.page }); if (r.anchor) setTimeout(() => this.scrollToAnchor(r.anchor), 400);
+    this.mq = window.matchMedia('(max-width: 1023px)');
+    this.onMQ = (e) => this.setState({ mobile: e.matches });
+    this.mq.addEventListener ? this.mq.addEventListener('change', this.onMQ) : this.mq.addListener(this.onMQ);
   }
   componentWillUnmount() {
-    document.removeEventListener('click', this.onClick);
-    window.removeEventListener('popstate', this.onPop);
+    this.mq.removeEventListener ? this.mq.removeEventListener('change', this.onMQ) : this.mq.removeListener(this.onMQ);
   }
   renderVals() {
-    const p = this.state.page;
-    return { isHome: p === 'Home', isInventory: p === 'Inventory', isVehicle: p === 'Vehicle-Detail', isSell: p === 'Sell-or-Trade', isProcess: p === 'Our-Process', isReviews: p === 'Reviews', isFaq: p === 'FAQ', isAbout: p === 'About-Contact' };
+    return { isMobile: this.state.mobile, isDesktop: !this.state.mobile };
   }
 }
 </script>
