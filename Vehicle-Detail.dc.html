@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="hover.js"></script>
+<script src="image-slot.js"></script>
+<style>
+body{margin:0;background:#F6EDDC;font-family:Archivo,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
+input,select,textarea{font-family:Archivo,Helvetica,sans-serif}
+input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
+</style>
+</helmet>
+
+<div data-screen-label="Vehicle Detail" style="width:1360px;min-width:1360px;margin:0 auto;background:#F6EDDC;min-height:100vh">
+
+  <!-- utility bar -->
+  <div style="background:#2A1A12;color:rgba(246,237,220,.85);display:flex;justify-content:space-between;align-items:center;padding:9px 40px;font-size:12.5px">
+    <div style="display:flex;gap:20px;align-items:center">
+      <span>Mon–Sat 9a–6p · Sun closed</span>
+      <span style="color:rgba(246,237,220,.45)">|</span>
+      <span>Miami, FL · address coming soon</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:center">
+      <span style="color:#E9A13B;font-weight:600;font-size:11.5px;letter-spacing:.05em">HABLAMOS ESPAÑOL</span>
+      <a href="tel:+17868812283" style="font-weight:600;color:rgba(246,237,220,.9)" data-hover="color:#E9A13B">(786) 881-2283</a>
+      <a href="https://wa.me/17868812283" style="display:flex;align-items:center;gap:6px;background:rgba(233,161,59,.16);border:1px solid rgba(233,161,59,.4);border-radius:99px;padding:4px 12px;color:#E9A13B;font-weight:600;font-size:11.5px;letter-spacing:.05em" data-hover="background:rgba(233,161,59,.3);color:#E9A13B">✆ WHATSAPP</a>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <div style="background:#F6EDDC;border-bottom:1px solid rgba(42,26,18,.12);display:flex;justify-content:space-between;align-items:center;padding:16px 40px">
+    <a href="Home.dc.html"><img src="assets/logo-horizontal-light.png" alt="Revamp Motors" style="height:66px;display:block"></a>
+    <div style="display:flex;gap:24px;align-items:center;font-size:13.5px;font-weight:600">
+      <a href="Inventory.dc.html" style="color:#C4502E;border-bottom:2px solid #C4502E;padding-bottom:3px">Inventory</a>
+      <a href="Sell-or-Trade.dc.html" style="color:#2A1A12" data-hover="color:#C4502E">Sell or Trade</a>
+      <a href="Our-Process.dc.html" style="color:#2A1A12" data-hover="color:#C4502E">Our Process</a>
+      <a href="Reviews.dc.html" style="color:#2A1A12" data-hover="color:#C4502E">Reviews</a>
+      <a href="FAQ.dc.html" style="color:#2A1A12" data-hover="color:#C4502E">FAQ</a>
+      <a href="About-Contact.dc.html" style="color:#2A1A12" data-hover="color:#C4502E">About</a>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <span onClick="{{ openOffer }}" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C4502E;cursor:pointer" data-hover="color:#9E3D20">Get an offer</span>
+      <a href="#book" style="background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border-radius:8px" data-hover="background:#E9A13B;color:#2A1A12">Book a test drive</a>
+    </div>
+  </div>
+
+  <!-- breadcrumb -->
+  <div style="padding:20px 40px 0;font-size:12.5px;color:rgba(42,26,18,.55)">
+    <a href="Inventory.dc.html" style="color:rgba(42,26,18,.55)" data-hover="color:#C4502E">← Back to inventory</a>
+    <span style="margin:0 8px">/</span>
+    <span>Unit #A-121</span>
+  </div>
+
+  <!-- title + gallery + rail -->
+  <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:36px;padding:18px 40px 48px;align-items:start">
+
+    <!-- left: gallery -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px">
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+            <span style="background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px">JUST REVAMPED</span>
+            <span style="border:1px solid rgba(42,26,18,.25);color:rgba(42,26,18,.7);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px">CLEAN TITLE (FL)</span>
+          </div>
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:42px;line-height:1.05;color:#2A1A12">2020 Kia Forte LXS</div>
+          <div style="font-size:14px;color:rgba(42,26,18,.65);margin-top:6px">41,880 mi · 2.0L I4 · CVT Automatic · FWD · 30/40 MPG</div>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(42,26,18,.18);border-radius:14px;overflow:hidden;height:430px;box-shadow:0 10px 28px rgba(42,26,18,.1)">
+        <image-slot id="vdp-forte-main" shape="rect" placeholder="Hero shot — same wall, same light, every car"></image-slot>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;margin-top:10px">
+        <div style="height:74px;border-radius:8px;border:1px solid rgba(42,26,18,.15);background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 10px,#E7D9BD 10px,#E7D9BD 20px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:9px;color:#8A7358;letter-spacing:.06em">FRONT ¾</span></div>
+        <div style="height:74px;border-radius:8px;border:1px solid rgba(42,26,18,.15);background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 10px,#E7D9BD 10px,#E7D9BD 20px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:9px;color:#8A7358;letter-spacing:.06em">INTERIOR</span></div>
+        <div style="height:74px;border-radius:8px;border:1px solid rgba(42,26,18,.15);background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 10px,#E7D9BD 10px,#E7D9BD 20px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:9px;color:#8A7358;letter-spacing:.06em">ENGINE BAY</span></div>
+        <div style="height:74px;border-radius:8px;border:1px solid rgba(42,26,18,.15);background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 10px,#E7D9BD 10px,#E7D9BD 20px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:9px;color:#8A7358;letter-spacing:.06em">UNDERCARRIAGE</span></div>
+        <div style="height:74px;border-radius:8px;border:1px solid rgba(42,26,18,.25);background:#EFE3CB;display:flex;align-items:center;justify-content:center"><span style="font-size:11px;font-weight:700;color:#2A1A12">+31 more</span></div>
+      </div>
+
+      <!-- specs -->
+      <div style="margin-top:32px">
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12;margin-bottom:14px">Specs</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:12px;padding:10px 22px">
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">VIN</span><span style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px">3KPF24AD5LE······</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Body</span><span>Sedan · 4-door</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Engine</span><span>2.0L I4 (147 hp)</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Transmission</span><span>CVT Automatic</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Drivetrain</span><span>FWD</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Exterior</span><span>Snow White Pearl</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Interior</span><span>Black cloth</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted rgba(42,26,18,.22);font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Fuel economy</span><span>30 city / 40 hwy</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Keys</span><span>2 fobs</span></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:13.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.6)">Owners</span><span>1 previous</span></div>
+        </div>
+      </div>
+
+      <!-- inspection report -->
+      <div id="report" style="margin-top:32px;background:#2A1A12;border-radius:14px;padding:26px 28px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span style="display:flex;align-items:center;gap:10px"><img src="assets/icon.png" alt="" style="width:26px;height:26px"><span style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#F6EDDC">REVAMP VETTED™ REPORT · #RV-0147</span></span>
+          <span style="border:2px solid #E9A13B;color:#E9A13B;font-size:10.5px;font-weight:700;letter-spacing:.14em;padding:6px 12px;border-radius:6px;transform:rotate(-3deg)">PASSED 132/132</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 32px">
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Engine &amp; transmission</span><span style="color:#E9A13B;font-weight:600">24/24 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Interior &amp; electronics</span><span style="color:#E9A13B;font-weight:600">22/22 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Brakes &amp; suspension</span><span style="color:#E9A13B;font-weight:600">18/18 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Tires &amp; wheels</span><span style="color:#E9A13B;font-weight:600">10/10 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Electrical &amp; battery</span><span style="color:#E9A13B;font-weight:600">16/16 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted rgba(246,237,220,.25);font-size:13px;color:rgba(246,237,220,.85)"><span>Body, frame &amp; flood check</span><span style="color:#E9A13B;font-weight:600">18/18 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px;color:rgba(246,237,220,.85)"><span>A/C &amp; cooling</span><span style="color:#E9A13B;font-weight:600">12/12 ✓</span></div>
+          <div style="display:flex;justify-content:space-between;padding:9px 0;font-size:13px;color:rgba(246,237,220,.85)"><span>Road test</span><span style="color:#E9A13B;font-weight:600">12/12 ✓</span></div>
+        </div>
+        <div style="background:rgba(246,237,220,.08);border:1px solid rgba(246,237,220,.15);border-radius:10px;padding:14px 16px;margin-top:16px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:#E9A13B;margin-bottom:6px">RECON — WHAT WE FIXED ON THIS CAR</div>
+          <div style="font-size:13px;line-height:1.6;color:rgba(246,237,220,.78)">New front brake pads &amp; rotors · 4-wheel alignment · Fresh oil + filters · New wiper blades · Full interior &amp; engine-bay detail</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
+          <span style="display:flex;gap:18px">
+            <a href="#report" style="font-size:12.5px;font-weight:600;color:#E9A13B">Download full PDF ↓</a>
+            <a href="Our-Process.dc.html" style="font-size:12.5px;font-weight:600;color:#E9A13B">How the inspection works →</a>
+          </span>
+          <span style="font-size:11.5px;color:rgba(246,237,220,.5)">Inspected 06/28/26 · R. Delgado</span>
+        </div>
+      </div>
+
+      <!-- history -->
+      <div id="history" style="margin-top:20px;background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:24px">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#2A1A12;margin-bottom:6px">VEHICLE HISTORY — FREE ON EVERY CAR</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.75)">1 previous owner · No accidents reported · No flood, salvage, or rebuilt records · Regular service history (FL)</div>
+        </div>
+        <a href="#history" style="flex:none;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:12px 20px;border-radius:8px" data-hover="border-color:#C4502E;color:#C4502E">View full report</a>
+      </div>
+    </div>
+
+    <!-- right rail -->
+    <div style="position:sticky;top:20px">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.16);border-radius:14px;padding:24px 26px;box-shadow:0 8px 24px rgba(42,26,18,.08)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:38px;color:#2A1A12">$14,750</span>
+          <span style="font-size:13px;color:rgba(42,26,18,.6)">$265/mo est.</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;font-size:11.5px;color:#2A1A12">
+          <span style="border:1px solid rgba(42,26,18,.2);border-radius:99px;padding:4px 10px">Market range $14.2–15.8k</span>
+          <span style="border:1px solid rgba(42,26,18,.2);border-radius:99px;padding:4px 10px">Priced at 95%</span>
+        </div>
+        <!-- OTD -->
+        <div style="border-top:2px solid #2A1A12;margin-top:16px;padding-top:12px">
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#2A1A12;margin-bottom:4px">OUT-THE-DOOR — NO SURPRISES</div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted rgba(42,26,18,.25);font-size:13px;color:#2A1A12"><span>Vehicle price</span><span style="font-family:ui-monospace,Menlo,monospace">$14,750.00</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted rgba(42,26,18,.25);font-size:13px;color:#2A1A12"><span>Dealer fee — flat</span><span style="font-family:ui-monospace,Menlo,monospace">$499.00</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted rgba(42,26,18,.25);font-size:13px;color:#2A1A12"><span>FL tax + county surtax</span><span style="font-family:ui-monospace,Menlo,monospace">$964.94</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:#2A1A12"><span>Tag, title &amp; reg (est.)</span><span style="font-family:ui-monospace,Menlo,monospace">$225.00</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:3px double #2A1A12;padding-top:10px">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.12em;color:#2A1A12">YOU PAY</span>
+            <span style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:24px;color:#C4502E">$16,438.94</span>
+          </div>
+        </div>
+        <!-- CTAs -->
+        <a href="#book" style="display:block;background:#2A1A12;color:#F6EDDC;text-align:center;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:15px 0;border-radius:8px;margin-top:16px" data-hover="background:#E9A13B;color:#2A1A12">Book a test drive</a>
+        <a href="https://wa.me/17868812283" style="display:block;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;text-align:center;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:13px 0;border-radius:8px;margin-top:10px" data-hover="border-color:#C4502E;color:#C4502E">✆ WhatsApp about this car</a>
+        <div style="display:flex;gap:10px;align-items:center;background:#F3E9D3;border:1px solid rgba(42,26,18,.1);border-radius:10px;padding:12px 14px;margin-top:14px">
+          <img src="assets/icon.png" alt="" style="width:22px;height:22px">
+          <span style="font-size:12px;line-height:1.5;color:rgba(42,26,18,.8)"><strong>Free 30-day / 1,000-mi warranty</strong> included. Extended coverage up to 3 yrs available — <a href="FAQ.dc.html" style="font-weight:600">see FAQ</a>.</span>
+        </div>
+      </div>
+      <!-- financing mini -->
+      <div style="background:#EFE3CB;border:1px solid rgba(42,26,18,.12);border-radius:14px;padding:18px 22px;margin-top:14px">
+        <div style="font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#2A1A12;margin-bottom:8px">FINANCING, TWO WAYS</div>
+        <div style="font-size:12.5px;line-height:1.6;color:rgba(42,26,18,.75)">Bank &amp; credit-union partners for strong credit · in-house financing when the banks say no. Est. $265/mo = $2,000 down, 60 mo, 7.9% APR. Soft pull first — <a href="FAQ.dc.html" style="font-weight:600">financing FAQ</a>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- book a test drive -->
+  <div id="book" style="background:#2A1A12;padding:56px 40px">
+    <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center">
+      <div>
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#E9A13B;margin-bottom:12px">30 minutes · zero pressure</div>
+        <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:38px;line-height:1.1;color:#F6EDDC">Book a test drive in this Forte</div>
+        <p style="font-size:15px;line-height:1.65;color:rgba(246,237,220,.72);margin:14px 0 0;max-width:400px">Appointment-first: the car is pulled up, cooled down, and ready when you arrive. Bring your license; we'll have the worksheet printed.</p>
+      </div>
+      <sc-if value="{{ bookSent }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#FDF8ED;border-radius:14px;padding:40px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.3)">
+          <div style="width:52px;height:52px;border-radius:50%;background:#2A1A12;color:#E9A13B;display:inline-flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px">✓</div>
+          <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:26px;color:#2A1A12">Request received</div>
+          <div style="font-size:14px;line-height:1.6;color:rgba(42,26,18,.7);margin-top:8px;max-width:380px;margin-left:auto;margin-right:auto">We'll confirm your time by text within business hours (Mon–Sat 9a–6p). Want it faster? <a href="https://wa.me/17868812283" style="font-weight:600">WhatsApp us</a>.</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ bookNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#FDF8ED;border-radius:14px;padding:26px 28px;box-shadow:0 16px 40px rgba(0,0,0,.3)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <input placeholder="First name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Last name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Email" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Phone" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <input type="date" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:12px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Preferred time (e.g. 5:30pm)" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;margin-top:14px">
+            <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;color:rgba(42,26,18,.55)">CONFIRM BY</span>
+            <sc-for list="{{ contactChips }}" as="chip" hint-placeholder-count="3">
+              <span style="{{ chip.style }}" onClick="{{ chip.pick }}">{{ chip.label }}</span>
+            </sc-for>
+          </div>
+          <div onClick="{{ sendBooking }}" style="background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:15px 0;border-radius:8px;margin-top:16px;cursor:pointer" data-hover="background:#D9A44A">Request this time →</div>
+          <div style="font-size:11.5px;color:rgba(42,26,18,.55);text-align:center;margin-top:10px">No obligation. We'll only use your number to confirm this appointment.</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- similar cars -->
+  <div style="background:#F6EDDC;padding:52px 40px 56px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px">
+      <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:30px;color:#2A1A12">Similar cars on the lot</div>
+      <a href="Inventory.dc.html" style="font-size:13.5px;font-weight:600;color:#C4502E">View all 18 →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px">
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <a href="Inventory.dc.html" style="display:flex;height:150px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em">34 PHOTOS</span></a>
+        <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
+          <span><a href="Inventory.dc.html" style="display:block;font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:18px;color:#2A1A12" data-hover="color:#C4502E">2019 Toyota Corolla SE</a><span style="display:block;font-size:12px;color:rgba(42,26,18,.6);margin-top:2px">62,410 mi · <span style="color:#C4502E;font-weight:600">Vetted ✓</span></span></span>
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:20px;color:#2A1A12">$15,990</span>
+        </div>
+      </div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <a href="Inventory.dc.html" style="display:flex;height:150px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em">28 PHOTOS</span></a>
+        <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
+          <span><a href="Inventory.dc.html" style="display:block;font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:18px;color:#2A1A12" data-hover="color:#C4502E">2020 Nissan Sentra SV</a><span style="display:block;font-size:12px;color:rgba(42,26,18,.6);margin-top:2px">47,210 mi · <span style="color:#C4502E;font-weight:600">Vetted ✓</span></span></span>
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:20px;color:#2A1A12">$14,290</span>
+        </div>
+      </div>
+      <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden">
+        <a href="Inventory.dc.html" style="display:flex;height:150px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em">35 PHOTOS</span></a>
+        <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center">
+          <span><a href="Inventory.dc.html" style="display:block;font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:18px;color:#2A1A12" data-hover="color:#C4502E">2021 Hyundai Elantra SEL</a><span style="display:block;font-size:12px;color:rgba(42,26,18,.6);margin-top:2px">38,900 mi · <span style="color:#C4502E;font-weight:600">Vetted ✓</span></span></span>
+          <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:20px;color:#2A1A12">$16,890</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="background:#2A1A12;padding:52px 40px 0">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:40px">
+      <div>
+        <a href="Home.dc.html"><img src="assets/logo-horizontal-dark.png" alt="Revamp Motors" style="height:44px;display:block;margin-bottom:16px"></a>
+        <div style="font-size:13.5px;line-height:1.6;color:rgba(246,237,220,.65);max-width:280px">The dealership that shows its work. Every car vetted, every price fair, everything in writing.</div>
+        <div style="font-size:10.5px;font-weight:600;letter-spacing:.22em;color:#D9A44A;margin-top:18px">MIAMI, FL · EST. 2023</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:14px">SHOP</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px">
+          <a href="Inventory.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">All inventory</a>
+          <a href="Inventory.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">Just Revamped</a>
+          <a href="#book" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">Book a test drive</a>
+          <a href="FAQ.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">Financing FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:14px">COMPANY</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px">
+          <a href="Sell-or-Trade.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">The Revamp Offer</a>
+          <a href="Our-Process.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">Our process</a>
+          <a href="Reviews.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">Reviews</a>
+          <a href="About-Contact.dc.html" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">About &amp; contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:14px">VISIT</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:rgba(246,237,220,.75)">
+          <span>Miami, FL · address coming soon</span>
+          <span>Mon–Sat 9a–6p · Sun closed</span>
+          <a href="tel:+17868812283" style="font-weight:700;color:#F6EDDC" data-hover="color:#E9A13B">(786) 881-2283 · WhatsApp</a>
+          <a href="mailto:hello@revampmotors.com" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">hello@revampmotors.com</a>
+          <span style="color:#E9A13B;font-weight:600">Hablamos español</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(246,237,220,.15);padding:18px 0 22px;display:flex;justify-content:space-between;gap:40px">
+      <div style="font-size:11px;line-height:1.55;color:rgba(246,237,220,.45);max-width:820px">Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee. Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. Payment estimates assume $2,000 down, 60 months, 7.9% APR — your terms may differ. FL dealer license pending.</div>
+      <div style="font-size:11.5px;color:rgba(246,237,220,.55);white-space:nowrap">© 2026 Revamp Motors LLC · Privacy · Terms</div>
+    </div>
+  </div>
+
+
+  <!-- lead modal -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;background:rgba(42,26,18,.6);z-index:80;display:flex;align-items:center;justify-content:center">
+      <div onClick="{{ swallow }}" style="background:#FDF8ED;border-radius:16px;width:430px;box-shadow:0 30px 80px rgba(0,0,0,.4);padding:30px 32px;position:relative">
+        <div onClick="{{ closeModal }}" style="position:absolute;top:8px;right:10px;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:19px;color:rgba(42,26,18,.5);line-height:1;border-radius:8px" data-hover="color:#C4502E">✕</div>
+        <sc-if value="{{ leadNotSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><img src="assets/icon.png" alt="" style="width:26px;height:26px"><span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12">{{ modalTitle }}</span></div>
+          <div style="font-size:13px;line-height:1.55;color:rgba(42,26,18,.65);margin-bottom:18px">{{ modalSub }}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+            <input placeholder="First name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Last name" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Email" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Email" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="Phone" style="border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+            <input placeholder="{{ modalCtx }}" style="grid-column:1 / -1;border:1px solid rgba(42,26,18,.25);border-radius:8px;padding:13px 14px;font-size:13.5px;background:#F6EDDC;color:#2A1A12;outline:none" data-focus="border-color:#C4502E">
+          </div>
+          <div onClick="{{ sendLead }}" style="{{ modalBtnStyle }}" data-hover="{{ modalBtnHover }}">{{ modalBtn }}</div>
+          <div style="font-size:11.5px;line-height:1.5;color:rgba(42,26,18,.55);text-align:center;margin-top:10px">No spam — we only text you back. Prefer WhatsApp? <a href="https://wa.me/17868812283" style="font-weight:600">(786) 881-2283</a></div>
+        </sc-if>
+        <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:14px 0 6px">
+            <div style="width:52px;height:52px;border-radius:50%;background:#2A1A12;color:#E9A13B;display:inline-flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:12px">✓</div>
+            <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:24px;color:#2A1A12">Got it — we’re on it</div>
+            <div style="font-size:13.5px;line-height:1.6;color:rgba(42,26,18,.7);margin-top:8px">{{ modalDone }}</div>
+            <div onClick="{{ closeModal }}" style="display:inline-block;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:11px 22px;border-radius:8px;margin-top:16px;cursor:pointer" data-hover="border-color:#C4502E;color:#C4502E">Close</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1360}}">
+class Component extends DCLogic {
+  modalVals() {
+    const kind = this.state.modal;
+    return {
+      modalOpen: !!kind,
+      leadSent: this.state.leadSent,
+      leadNotSent: !this.state.leadSent,
+      modalTitle: kind === 'offer' ? 'Get an offer on your car' : 'Book a test drive',
+      modalSub: kind === 'offer' ? 'VIN + phone is all we need to start. A human appraiser texts your written offer within 4 business hours — valid 7 days.' : 'Tell us who and which car. We\u2019ll text to confirm a time — the car will be pulled up and ready.',
+      modalCtx: kind === 'offer' ? 'VIN or plate + mileage' : 'Which car? e.g. 2020 Kia Forte',
+      modalBtn: kind === 'offer' ? 'Get my written offer \u2192' : 'Request test drive \u2192',
+      modalDone: kind === 'offer' ? 'Your written offer arrives by text within 4 business hours (Mon\u2013Sat 9a\u20136p).' : 'We\u2019ll text to confirm your test drive within business hours (Mon\u2013Sat 9a\u20136p).',
+      modalBtnStyle: Object.assign({ textAlign: 'center', fontSize: '12.5px', fontWeight: 700, letterSpacing: '.09em', textTransform: 'uppercase', padding: '14px 0', borderRadius: 8, marginTop: 16, cursor: 'pointer' }, kind === 'offer' ? { background: '#C4502E', color: '#F6EDDC' } : { background: '#E9A13B', color: '#2A1A12', border: '1.5px solid #B87F27' }),
+      modalBtnHover: kind === 'offer' ? 'background:#9E3D20' : 'background:#D9A44A',
+      openOffer: () => this.setState({ modal: 'offer', leadSent: false }),
+      openDrive: () => this.setState({ modal: 'drive', leadSent: false }),
+      closeModal: () => this.setState({ modal: null }),
+      swallow: (e) => e.stopPropagation(),
+      sendLead: () => this.setState({ leadSent: true })
+    };
+  }
+
+  state = { modal: null, leadSent: false, sent: false, contact: 'Text' };
+
+  renderVals() {
+    const chip = (label) => ({
+      label,
+      style: {
+        padding: '6px 13px', borderRadius: 99, cursor: 'pointer', fontSize: '12px', fontWeight: 600, userSelect: 'none',
+        border: this.state.contact === label ? '1.5px solid #2A1A12' : '1px solid rgba(42,26,18,.25)',
+        background: this.state.contact === label ? '#2A1A12' : 'transparent',
+        color: this.state.contact === label ? '#F6EDDC' : 'rgba(42,26,18,.7)'
+      },
+      pick: () => this.setState({ contact: label })
+    });
+    return {
+      ...this.modalVals(),
+      bookSent: this.state.sent,
+      bookNotSent: !this.state.sent,
+      contactChips: ['Text', 'WhatsApp', 'Call'].map(chip),
+      sendBooking: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
