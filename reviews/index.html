@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
+<title>Customer Reviews | Revamp Motors Miami</title>
+<meta name="description" content="What Miami says about buying and selling with Revamp Motors — straight talk, real numbers, no games.">
+<link rel="canonical" href="https://www.revampmotorsfl.com/reviews">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revamp Motors">
+<meta property="og:url" content="https://www.revampmotorsfl.com/reviews">
+<meta property="og:title" content="Customer Reviews | Revamp Motors Miami">
+<meta property="og:description" content="What Miami says about buying and selling with Revamp Motors — straight talk, real numbers, no games.">
+<meta property="og:image" content="https://www.revampmotorsfl.com/assets/og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#2A1A12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="/support.js"></script>
+<style>
+html,body{margin:0;background:#F6EDDC}
+#boot{position:fixed;inset:0;z-index:9999;background:#F6EDDC;display:flex;align-items:center;justify-content:center;transition:opacity .25s ease}
+#boot img{height:56px}
+#boot.off{opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){#boot{transition:none}}
+</style>
+</head>
+<body>
+<div id="boot" aria-hidden="true"><img src="/assets/logo-horizontal-light.png" alt=""></div>
+<x-dc>
+<div>
+  <sc-if value="{{ isDesktop }}"><dc-import name="Reviews" hint-size="100%,100vh"></dc-import></sc-if>
+  <sc-if value="{{ isMobile }}"><dc-import name="M-Reviews" hint-size="100%,100vh"></dc-import></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobile: window.matchMedia('(max-width: 1023px)').matches };
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 1023px)');
+    this.onMQ = (e) => this.setState({ mobile: e.matches });
+    this.mq.addEventListener ? this.mq.addEventListener('change', this.onMQ) : this.mq.addListener(this.onMQ);
+  }
+  componentWillUnmount() {
+    this.mq.removeEventListener ? this.mq.removeEventListener('change', this.onMQ) : this.mq.removeListener(this.onMQ);
+  }
+  renderVals() { return { isMobile: this.state.mobile, isDesktop: !this.state.mobile }; }
+}
+</script>
+<script>
+(function () {
+  
+  var boot = document.getElementById('boot');
+  var host = document.querySelector('x-dc');
+  function ready() {
+    if (!boot) return;
+    boot.classList.add('off');
+    setTimeout(function () { boot && boot.remove(); boot = null; }, 300);
+  }
+  var mo = new MutationObserver(function () {
+    if (host && host.childElementCount && host.getBoundingClientRect().height > 60) { mo.disconnect(); ready(); }
+  });
+  if (host) mo.observe(host, { childList: true, subtree: true });
+  setTimeout(ready, 6000);
+})();
+</script>
+<noscript>
+<div style="max-width:640px;margin:40px auto;padding:0 20px;font-family:Georgia,serif;color:#2A1A12">
+<h1>Revamp Motors — Used Cars, Miami FL</h1>
+<p>Every car passes our 132-point Revamp Vetted inspection and is priced with the full out-the-door number upfront. Hablamos español.</p>
+<p>7621 NW 7th Ave Unit 101, Miami, FL 33150 · Mon–Sat 9a–6p<br>
+Call or WhatsApp <a href="tel:+17868812283">(786) 881-2283</a> · <a href="mailto:hello@revampmotorsfl.com">hello@revampmotorsfl.com</a></p>
+<p><a href="/inventory">Inventory</a> · <a href="/sell-or-trade">Sell or Trade</a> · <a href="/our-process">Our Process</a> · <a href="/faq">FAQ</a> · <a href="/about">About &amp; Contact</a></p>
+<p>FL Dealer License VI/1154629/1</p>
+</div>
+</noscript>
+</body>
+</html>

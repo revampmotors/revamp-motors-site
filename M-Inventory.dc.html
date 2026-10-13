@@ -48,12 +48,12 @@ a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
   <!-- list -->
   <div style="padding:18px 20px 8px">
     <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
-      <div style="text-align:center;padding:50px 10px;color:rgba(42,26,18,.65);font-size:15px;line-height:1.6">No cars match those filters — try loosening one, or <a href="M-About-Contact.dc.html#contact" style="font-weight:600">tell us what you're looking for</a> and we'll source it.<div onClick="{{ reset }}" style="display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border:1.5px solid rgba(42,26,18,.3);border-radius:8px;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:18px;cursor:pointer">Clear filters</div></div>
+      <div style="text-align:center;padding:50px 10px;color:rgba(42,26,18,.65);font-size:15px;line-height:1.6">No cars match those filters — try loosening one, or <a href="/about#contact" style="font-weight:600">tell us what you're looking for</a> and we'll source it.<div onClick="{{ reset }}" style="display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border:1.5px solid rgba(42,26,18,.3);border-radius:8px;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:18px;cursor:pointer">Clear filters</div></div>
     </sc-if>
     <div style="display:flex;flex-direction:column;gap:16px">
       <sc-for list="{{ cars }}" as="car" hint-placeholder-count="4">
         <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.14);border-radius:14px;overflow:hidden;box-shadow:0 3px 12px rgba(42,26,18,.06)">
-          <a href="M-Vehicle-Detail.dc.html" style="position:relative;display:flex;height:186px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center">
+          <a href="/vehicle" style="position:relative;display:flex;height:186px;background:repeating-linear-gradient(45deg,#EFE4CE,#EFE4CE 12px,#E7D9BD 12px,#E7D9BD 24px);align-items:center;justify-content:center">
             <span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:#8A7358;letter-spacing:.08em">{{ car.photoLabel }}</span>
             <sc-if value="{{ car.isNew }}" hint-placeholder-val="{{ false }}">
               <span style="position:absolute;top:12px;left:12px;background:#E9A13B;border:1.5px solid #B87F27;box-shadow:inset 0 0 0 2px rgba(246,237,220,.5);color:#2A1A12;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:5px;white-space:nowrap">JUST REVAMPED</span>
@@ -63,7 +63,7 @@ a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
             </sc-if>
           </a>
           <div style="padding:16px">
-            <a href="M-Vehicle-Detail.dc.html" style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:21px;line-height:1.15;color:#2A1A12">{{ car.name }}</a>
+            <a href="/vehicle" style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:21px;line-height:1.15;color:#2A1A12">{{ car.name }}</a>
             <div style="font-size:13px;color:rgba(42,26,18,.6);margin-top:4px">{{ car.meta }}</div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:10px">
               <span style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:26px;color:#2A1A12">{{ car.priceTxt }}</span>
@@ -71,11 +71,11 @@ a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px dashed rgba(42,26,18,.2);margin-top:12px;padding-top:10px">
               <span style="display:flex;align-items:center;gap:7px"><img src="assets/icon.png" alt="" style="width:17px;height:17px"><span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#2A1A12">REVAMP VETTED · 132-PT</span></span>
-              <a href="M-Vehicle-Detail.dc.html#report" style="font-size:12.5px;font-weight:600;color:#C4502E;padding:12px 0">Report ↓</a>
+              <a href="/vehicle#report" style="font-size:12.5px;font-weight:600;color:#C4502E;padding:12px 0">Report ↓</a>
             </div>
             <div style="display:flex;gap:10px;margin-top:12px">
-              <a href="M-Vehicle-Detail.dc.html" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;border:1.5px solid rgba(42,26,18,.25);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Details</a>
-              <a href="M-Vehicle-Detail.dc.html#book" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Test drive</a>
+              <a href="/vehicle" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;border:1.5px solid rgba(42,26,18,.25);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Details</a>
+              <a href="/vehicle#book" style="flex:1;display:flex;align-items:center;justify-content:center;height:46px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Test drive</a>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
       <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:22px;color:#2A1A12">Don't see your car?</div>
       <div style="font-size:14.5px;line-height:1.55;color:rgba(42,26,18,.7);margin-top:6px">Tell us the make, model, and budget — we source at auction weekly and we'll vet one for you.</div>
       <div style="display:flex;gap:10px;margin-top:16px">
-        <a href="M-About-Contact.dc.html#contact" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Request a car</a>
+        <a href="/about#contact" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;background:#2A1A12;color:#F6EDDC;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">Request a car</a>
         <a href="https://wa.me/17868812283" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;border:1.5px solid rgba(42,26,18,.3);color:#2A1A12;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap">WhatsApp us</a>
       </div>
     </div>
