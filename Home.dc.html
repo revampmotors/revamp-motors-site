@@ -29,7 +29,7 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
     <div style="display:flex;gap:20px;align-items:center">
       <span>Mon–Sat 9a–6p · Sun closed</span>
       <span style="color:rgba(246,237,220,.45)">|</span>
-      <span>Miami, FL · address coming soon</span>
+      <span>7621 NW 7th Ave Unit 101 · Miami, FL 33150</span>
     </div>
     <div style="display:flex;gap:18px;align-items:center">
       <span style="color:#E9A13B;font-weight:600;font-size:11.5px;letter-spacing:.05em">HABLAMOS ESPAÑOL</span>
@@ -62,9 +62,9 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
       <div style="font-family:Rokkitt,Georgia,serif;font-weight:900;font-size:64px;line-height:1.02;color:#2A1A12;letter-spacing:-.01em">Used cars,<br>revamped.</div>
       <p style="font-size:17.5px;line-height:1.6;color:rgba(42,26,18,.75);margin:20px 0 28px;max-width:520px">Every car personally vetted with a published 132-point inspection. Every price set to market — and quoted out-the-door before you ask. <em style="font-style:italic">Hablamos español.</em></p>
       <div style="background:#FDF8ED;border:1px solid rgba(42,26,18,.15);border-radius:12px;padding:10px;display:flex;gap:10px;box-shadow:0 4px 16px rgba(42,26,18,.07);max-width:560px">
-        <div style="flex:1.2;padding:11px 14px;border-right:1px solid rgba(42,26,18,.1);color:rgba(42,26,18,.55);font-size:14px">Make or model</div>
-        <div style="flex:.8;padding:11px 14px;color:rgba(42,26,18,.55);font-size:14px">Max price ▾</div>
-        <a href="Inventory.dc.html" style="background:#C4502E;color:#F6EDDC;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:13px 22px;border-radius:8px;white-space:nowrap" data-hover="background:#9E3D20;color:#F6EDDC">Search 18 cars</a>
+        <input placeholder="Make or model" style="flex:1.2;padding:11px 14px;border:0;border-right:1px solid rgba(42,26,18,.1);background:transparent;color:#2A1A12;font-size:14px;outline:none">
+        <select style="flex:.8;padding:11px 10px;border:0;background:transparent;color:#2A1A12;font-size:14px;outline:none"><option>Any price</option><option>Under $12,000</option><option>Under $15,000</option><option>Under $18,000</option><option>Under $22,000</option></select>
+        <a href="Inventory.dc.html" style="background:#C4502E;color:#F6EDDC;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:13px 22px;border-radius:8px;white-space:nowrap" data-hover="background:#9E3D20;color:#F6EDDC">Search cars</a>
       </div>
       <div style="display:flex;gap:8px;margin-top:14px;font-size:12px">
         <a href="Inventory.dc.html" style="border:1px solid rgba(42,26,18,.18);border-radius:99px;padding:5px 12px;color:rgba(42,26,18,.6)" data-hover="border-color:#C4502E;color:#C4502E">Under $15k</a>
@@ -75,7 +75,7 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
     </div>
     <div>
       <div style="position:relative;border:1px solid rgba(42,26,18,.18);outline:3px solid rgba(217,164,74,.35);outline-offset:-9px;border-radius:14px;overflow:hidden;height:400px;box-shadow:0 14px 34px rgba(42,26,18,.14)">
-        <image-slot id="hero-lot-1a" shape="rect" placeholder="Your actual lot at golden hour — team out front, not stock"></image-slot>
+        <img src="assets/home-hero.jpg" alt="On the lot at Revamp Motors" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
       <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(42,26,18,.5);margin-top:10px;letter-spacing:.06em">PHOTO: THE REAL LOT + TEAM — TRUST STARTS WITH SHOWING YOURS</div>
     </div>
@@ -96,7 +96,7 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
         <div style="font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#C4502E;margin-bottom:8px">Fresh on the lot</div>
         <div style="font-family:Rokkitt,Georgia,serif;font-weight:800;font-size:36px;color:#2A1A12">Just Revamped</div>
       </div>
-      <a href="Inventory.dc.html" style="font-size:13.5px;font-weight:600;color:#C4502E">View all 18 cars →</a>
+      <a href="Inventory.dc.html" style="font-size:13.5px;font-weight:600;color:#C4502E">View all cars →</a>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px">
 
@@ -319,11 +319,11 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
       <div style="font-family:Rokkitt,Georgia,serif;font-weight:700;font-size:19px;color:#2A1A12;margin-bottom:4px">Hours</div>
       <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(42,26,18,.15);font-size:14.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.7)">Monday – Saturday</span><span style="font-weight:700">9:00a – 6:00p</span></div>
       <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(42,26,18,.15);font-size:14.5px;color:#2A1A12"><span style="color:rgba(42,26,18,.7)">Sunday</span><span style="font-weight:700">Closed</span></div>
-      <div style="font-size:14px;color:#2A1A12;margin-top:16px"><strong>Address:</strong> <span style="color:rgba(42,26,18,.65)">Coming soon · Miami, FL</span></div>
+      <div style="font-size:14px;color:#2A1A12;margin-top:16px"><strong>Address:</strong> <span style="color:rgba(42,26,18,.65)">7621 NW 7th Ave Unit 101, Miami, FL 33150</span></div>
       <div style="display:flex;gap:12px;align-items:center;margin-top:24px">
         <a href="tel:+17868812283" style="background:#E9A13B;border:1.5px solid #B87F27;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:8px" data-hover="background:#D9A44A;color:#2A1A12">Call (786) 881-2283</a>
         <a href="https://wa.me/17868812283" style="border:1.5px solid #2A1A12;color:#2A1A12;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:12.5px 24px;border-radius:8px" data-hover="border-color:#C4502E;color:#C4502E">WhatsApp</a>
-        <a href="mailto:hello@revampmotors.com" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C4502E;margin-left:6px">Email us</a>
+        <a href="mailto:hello@revampmotorsfl.com" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C4502E;margin-left:6px">Email us</a>
       </div>
     </div>
     <div style="border:1px dashed rgba(42,26,18,.3);border-radius:14px;height:340px;background:#FDF8ED;display:flex;align-items:center;justify-content:center">
@@ -360,16 +360,16 @@ input::placeholder,textarea::placeholder{color:rgba(42,26,18,.45)}
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:#E9A13B;margin-bottom:14px">VISIT</div>
         <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:rgba(246,237,220,.75)">
-          <span>Miami, FL · address coming soon</span>
+          <span>7621 NW 7th Ave Unit 101 · Miami, FL 33150</span>
           <span>Mon–Sat 9a–6p · Sun closed</span>
           <a href="tel:+17868812283" style="font-weight:700;color:#F6EDDC" data-hover="color:#E9A13B">(786) 881-2283 · WhatsApp</a>
-          <a href="mailto:hello@revampmotors.com" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">hello@revampmotors.com</a>
+          <a href="mailto:hello@revampmotorsfl.com" style="color:rgba(246,237,220,.75)" data-hover="color:#E9A13B">hello@revampmotorsfl.com</a>
           <span style="color:#E9A13B;font-weight:600">Hablamos español</span>
         </div>
       </div>
     </div>
     <div style="border-top:1px solid rgba(246,237,220,.15);padding:18px 0 22px;display:flex;justify-content:space-between;gap:40px">
-      <div style="font-size:11px;line-height:1.55;color:rgba(246,237,220,.45);max-width:820px">Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee (this charge represents costs and profit to the dealer for items such as inspecting, cleaning, and adjusting vehicles, and preparing documents related to the sale). Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL dealer license pending. Pricing and availability subject to change.</div>
+      <div style="font-size:11px;line-height:1.55;color:rgba(246,237,220,.45);max-width:820px">Advertised prices exclude tax, tag, title, registration, and a $499 pre-delivery service fee (this charge represents costs and profit to the dealer for items such as inspecting, cleaning, and adjusting vehicles, and preparing documents related to the sale). Every retail vehicle includes a free 30-day / 1,000-mile limited powertrain warranty; optional extended coverage available. FL Dealer License VI/1154629/1. Pricing and availability subject to change.</div>
       <div style="font-size:11.5px;color:rgba(246,237,220,.55);white-space:nowrap">© 2026 Revamp Motors LLC · Privacy · Terms</div>
     </div>
   </div>
