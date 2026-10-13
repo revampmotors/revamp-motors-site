@@ -37,20 +37,47 @@
    ]
   },
   {
-   "source": "/(.*).dc.html",
-   "headers": [
-    {
-     "key": "Cache-Control",
-     "value": "public, max-age=0, must-revalidate"
-    }
-   ]
-  },
-  {
    "source": "/(support|hover|image-slot).js",
    "headers": [
     {
      "key": "Cache-Control",
      "value": "public, max-age=86400"
+    }
+   ]
+  },
+  {
+   "source": "/(.*).dc.html",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=60, stale-while-revalidate=604800"
+    }
+   ]
+  },
+  {
+   "source": "/",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=60, stale-while-revalidate=604800"
+    }
+   ]
+  },
+  {
+   "source": "/(inventory|vehicle|sell-or-trade|our-process|reviews|faq|about)",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=60, stale-while-revalidate=604800"
+    }
+   ]
+  },
+  {
+   "source": "/inventory.json",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=60, stale-while-revalidate=604800"
     }
    ]
   }

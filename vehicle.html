@@ -23,7 +23,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@700;800;900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="/support.js"></script>
+<link rel="preload" href="/Vehicle-Detail.dc.html" as="fetch" media="(min-width:1024px)">
+<link rel="preload" href="/M-Vehicle-Detail.dc.html" as="fetch" media="(max-width:1023px)">
+<link rel="preload" href="/M-Chrome.dc.html" as="fetch" media="(max-width:1023px)">
+<link rel="preload" href="/M-Footer.dc.html" as="fetch" media="(max-width:1023px)">
+<script src="/support.js" defer></script>
 <style>
 html,body{margin:0;background:#F6EDDC}
 #boot{position:fixed;inset:0;z-index:9999;background:#F6EDDC;display:flex;align-items:center;justify-content:center;transition:opacity .25s ease}
@@ -81,5 +85,20 @@ Call or WhatsApp <a href="tel:+17868812283">(786) 881-2283</a> · <a href="mailt
 <p>FL Dealer License VI/1154629/1</p>
 </div>
 </noscript>
+<script>
+(function(){
+  if (navigator.connection && navigator.connection.saveData) return;
+  var items = ["/", "/inventory", "/vehicle", "/sell-or-trade", "/our-process", "/reviews", "/faq", "/about", "/Home.dc.html", "/M-Home.dc.html", "/Inventory.dc.html", "/M-Inventory.dc.html", "/Vehicle-Detail.dc.html", "/M-Vehicle-Detail.dc.html", "/Sell-or-Trade.dc.html", "/M-Sell-or-Trade.dc.html", "/Our-Process.dc.html", "/M-Our-Process.dc.html", "/Reviews.dc.html", "/M-Reviews.dc.html", "/FAQ.dc.html", "/M-FAQ.dc.html", "/About-Contact.dc.html", "/M-About-Contact.dc.html", "/M-Chrome.dc.html", "/M-Footer.dc.html", "/inventory.json"];
+  function go(){
+    items.forEach(function(u){
+      if (u === location.pathname) return;
+      var l = document.createElement('link'); l.rel='prefetch'; l.href=u;
+      document.head.appendChild(l);
+    });
+  }
+  if ('requestIdleCallback' in window) addEventListener('load',function(){requestIdleCallback(go,{timeout:4000});});
+  else addEventListener('load',function(){setTimeout(go,2500);});
+})();
+</script>
 </body>
 </html>
