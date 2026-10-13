@@ -29,14 +29,13 @@
 <script src="/support.js" defer></script>
 <style>
 html,body{margin:0;background:#F6EDDC}
-#boot{position:fixed;inset:0;z-index:9999;background:#F6EDDC;display:flex;align-items:center;justify-content:center;transition:opacity .15s ease}
-#boot img{height:56px}
-#boot.off{opacity:0;pointer-events:none}
-@media(prefers-reduced-motion:reduce){#boot{transition:none}}
+@media (prefers-reduced-motion:no-preference){
+[data-screen-label]{animation:rv-in .18s ease-out both}
+@keyframes rv-in{from{opacity:.35}to{opacity:1}}
+}
 </style>
 </head>
 <body>
-<div id="boot" aria-hidden="true"><img src="/assets/logo-horizontal-light.png" alt=""></div>
 <x-dc>
 <div>
   <sc-if value="{{ isDesktop }}"><dc-import name="Sell-or-Trade" hint-size="100%,100vh"></dc-import></sc-if>
@@ -57,24 +56,7 @@ class Component extends DCLogic {
   renderVals() { return { isMobile: this.state.mobile, isDesktop: !this.state.mobile }; }
 }
 </script>
-<script>
-(function () {
-  
-  var boot = document.getElementById('boot');
-  function rendered() {
-    return !!document.querySelector('[data-screen-label]') || document.body.scrollHeight > 900;
-  }
-  function ready() {
-    if (!boot) return;
-    boot.classList.add('off');
-    setTimeout(function () { boot && boot.remove(); boot = null; }, 180);
-  }
-  if (rendered()) ready();
-  var mo = new MutationObserver(function () { if (rendered()) { mo.disconnect(); ready(); } });
-  mo.observe(document.body, { childList: true, subtree: true });
-  setTimeout(ready, 2500);
-})();
-</script>
+
 <noscript>
 <div style="max-width:640px;margin:40px auto;padding:0 20px;font-family:Georgia,serif;color:#2A1A12">
 <h1>Revamp Motors — Used Cars, Miami FL</h1>
