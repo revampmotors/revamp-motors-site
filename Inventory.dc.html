@@ -238,9 +238,16 @@ class Component extends DCLogic {
     };
   }
 
-  state = { modal: null, leadSent: false, body: 'All', price: 'Any price', sort: 'Newest' };
+  state = { liveCars: null, modal: null, leadSent: false, body: 'All', price: 'Any price', sort: 'Newest' };
+
+  componentDidMount() {
+    fetch('/inventory.json').then(function (r) { return r.ok ? r.json() : null; })
+      .then((d) => { if (Array.isArray(d) && d.length) this.setState({ liveCars: d }); })
+      .catch(function () {});
+  }
 
   allCars() {
+    if (this.state && this.state.liveCars) return this.state.liveCars;
     return [
       { name: '2021 Kia Soul LX', miles: 33410, price: 16980, mo: 305, body: 'Hatchbacks', badge: 'new', photos: 33, unit: 'A-129' },
       { name: '2021 Hyundai Elantra SEL', miles: 38900, price: 16890, mo: 305, body: 'Sedans', badge: 'new', photos: 35, unit: 'A-127' },

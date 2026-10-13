@@ -126,7 +126,13 @@ a{color:#C4502E;text-decoration:none}a:hover{color:#9E3D20}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { body: 'All', price: 'Any price', sort: 'Newest', sheet: false };
+  state = { liveCars: null, body: 'All', price: 'Any price', sort: 'Newest', sheet: false };
+
+  componentDidMount() {
+    fetch('/inventory.json').then(function (r) { return r.ok ? r.json() : null; })
+      .then((d) => { if (Array.isArray(d) && d.length) this.setState({ liveCars: d }); })
+      .catch(function () {});
+  }
   ref = React.createRef();
   scroller() { const el = this.ref.current; return (el && el.closest('[data-m-scroll]')) || document.body; }
   lock(force) {
@@ -139,6 +145,7 @@ class Component extends DCLogic {
   componentWillUnmount() { this.lock(false); }
 
   allCars() {
+    if (this.state && this.state.liveCars) return this.state.liveCars;
     return [
       { name: '2021 Kia Soul LX', miles: 33410, price: 16980, mo: 305, body: 'Hatchbacks', badge: 'new', photos: 33, unit: 'A-129' },
       { name: '2021 Hyundai Elantra SEL', miles: 38900, price: 16890, mo: 305, body: 'Sedans', badge: 'new', photos: 35, unit: 'A-127' },
